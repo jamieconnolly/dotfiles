@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Usage: script/setup
+# Make sure our dotfiles are set up.
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Always run from app root
+cd $(dirname "$0")/..
+
+DOTFILES="`pwd`"
+
+echo "Setting up your dotfiles..."
+
+#
+# Create the symlinks
+#
+for source in `find -L $DOTFILES -maxdepth 2 -name \*.symlink` ; do
+  dest="$HOME/.`basename \"${source%.*}\"`"
+
+  if [ -f $dest ] || [ -d $dest ] ; then
+    rm -rf $dest
+    echo "  + Removed $dest"
+  fi
+
+  ln -s $source $dest
+  echo "  + Linked $source to $dest"
+done
+
+echo ""
+echo "All installed!"
