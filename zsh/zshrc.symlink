@@ -2,7 +2,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # Expose the projects folder so that we can `c [tab]`
-export PROJECTS=$HOME/Projects
+#export PROJECTS=$HOME/Projects
 
 # Make sure Boxen is available.
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
