@@ -4,9 +4,6 @@ export DOTFILES=$HOME/.dotfiles
 # Expose the projects folder so that we can `c [tab]`
 #export PROJECTS=$HOME/Projects
 
-# Disable the standard virtualenv prompt
-export VIRTUAL_ENV_DISABLE_PROMPT=true
-
 # Make sure Boxen is available.
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
