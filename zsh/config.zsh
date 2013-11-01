@@ -7,6 +7,9 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+# disable the standard virtualenv prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+
 # fpath=($ZSH/functions $fpath)
 
 # autoload -U $ZSH/functions/*(:t)
