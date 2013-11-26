@@ -69,7 +69,7 @@ python_version() {
 }
 
 virtualenv_info() {
-  [ $VIRTUAL_ENV ] && echo ''`basename $VIRTUAL_ENV`''
+  [ $VIRTUAL_ENV ] && echo ''`basename ${VIRTUAL_ENV%/.venv}`''
 }
 
 virtualenv_prompt() {
