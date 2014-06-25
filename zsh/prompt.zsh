@@ -51,36 +51,6 @@ unpushed () {
   $git cherry -v origin/$(git_branch) 2>/dev/null
 }
 
-python_prompt() {
-  if ! [[ -z $(python_version) ]]
-  then
-    echo "%{$fg_bold[yellow]%}$(python_version)%{$reset_color%} "
-  else
-    echo ""
-  fi
-}
-
-python_version() {
-  if (( $+commands[pyenv] ))
-  then
-    version=$(pyenv version-name)
-    [ "$(pyenv global)" != "$version" ] && echo "python-$version"
-  fi
-}
-
-virtualenv_info() {
-  [ $VIRTUAL_ENV ] && echo ''`basename ${VIRTUAL_ENV%/venv}`''
-}
-
-virtualenv_prompt() {
-  if ! [[ -z "$(virtualenv_info)" ]]
-  then
-    echo "%{$fg_bold[black]%}$(virtualenv_info)%{$reset_color%} "
-  else
-    echo ""
-  fi
-}
-
 current_pwd() {
   current=$(pwd | sed -e "s,^$HOME,~,")
   if [[ $current == "/" || $current == "~" ]]
@@ -95,7 +65,7 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}$(current_pwd)%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(python_prompt)in $(directory_name) $(git_prompt)\n$(virtualenv_prompt)» '
+export PROMPT=$'\nin $(directory_name) $(git_prompt)\n» '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
