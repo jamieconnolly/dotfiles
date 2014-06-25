@@ -1,0 +1,25 @@
+'exception-reporting':
+  'userId': '3aadc63a-9431-692d-683c-94ff2a17a71f'
+'release-notes':
+  'viewedVersion': '0.95.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': 'd54d08e928a778da03a8823ccdb3fa0fedcf054c'
+'editor':
+  'fontSize': 12
+  'fontFamily': 'Menlo'
+  'showIndentGuide': true
+  'tabLength': 4
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'monokai'
+  ]
+  'disabledPackages': [
+    'background-tips'
+    'exception-reporting'
+    'metrics'
+  ]
+  'projectHome': '/Users/jamieconnolly/Code'
+'tree-view': {}
