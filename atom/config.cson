@@ -10,7 +10,6 @@
   'fontSize': 12
   'fontFamily': 'Menlo'
   'showIndentGuide': true
-  'tabLength': 4
 'core':
   'themes': [
     'atom-dark-ui'
@@ -22,4 +21,6 @@
     'metrics'
   ]
   'projectHome': '/Users/jamieconnolly/Code'
-'tree-view': {}
+'tree-view':
+  'hideIgnoredNames': true
+  'hideVcsIgnoredFiles': true
