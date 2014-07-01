@@ -15,12 +15,11 @@ git_branch() {
 }
 
 git_dirty() {
-  st=$($git status 2>/dev/null | tail -n 1)
-  if [[ $st == "" ]]
+  if $(! $git status -s &> /dev/null)
   then
     echo ""
   else
-    if [[ "$st" =~ ^nothing ]]
+    if [[ $($git status --porcelain) == "" ]]
     then
       echo "on %{$fg_bold[green]%}$(git_symbolic_ref)%{$reset_color%}"
     else
@@ -48,7 +47,7 @@ need_push () {
 }
 
 unpushed () {
-  $git cherry -v origin/$(git_branch) 2>/dev/null
+  $git cherry -v @{upstream} 2>/dev/null
 }
 
 current_pwd() {
