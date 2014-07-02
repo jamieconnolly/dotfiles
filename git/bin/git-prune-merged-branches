@@ -1,0 +1,45 @@
+#!/bin/sh
+#
+# Deletes a branch locally and on the origin remote.
+#
+# $1 - Branch name.
+#
+# Examples
+#
+#   git prune-remote-branches
+
+# First argument is the new branch name
+branch="$1"
+
+# Default branch to master if it wasn't passed in
+: ${branch:="master"}
+
+# Update our list of remotes
+git fetch origin --prune
+
+# Remove local fully merged branches
+git branch --merged $branch | grep -v "$branch$" | xargs git branch -d
+
+# List remote fully merged branches
+branches=$(
+    git branch --no-color -a --merged "origin/$branch" |
+    grep "^..remotes/origin/" |
+    grep -v "^..remotes/origin/$branch$" |
+    grep -v " -> " |
+    sed 's|^\(..\)remotes/'origin'/|\1|'
+)
+
+# Remove remote fully merged branches
+if [ -n "$branches" ]
+then
+  echo "The following remote branches are fully merged and will be removed:"
+  echo "$branches"
+
+  read -p "Continue (y/n)? "
+  if [ "$REPLY" == "y" ]
+  then
+    # Actually delete the remote branches
+    git push origin $(echo "$branches" | sed 's/^../:/')
+    echo "Done!"
+  fi
+fi

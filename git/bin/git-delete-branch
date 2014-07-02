@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Deletes a branch locally and on the origin remote.
+#
+# $1 - Branch name.
+#
+# Examples
+#
+#   git delete-branch foobar
+
+git push origin :refs/heads/$1
+git remote prune origin
+git branch -D $1

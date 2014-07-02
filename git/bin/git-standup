@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Usage: git-standup
+#
+# Remember what you've done since your last standup
+
+author=$(git config --get user.name)
+
+since=yesterday
+if [[ $(date +%u) == 1 ]]
+then
+  since="3 days ago"
+fi
+
+git log --no-merges --oneline --reverse --author="$author" --branches=* --date=local --since="$since"
