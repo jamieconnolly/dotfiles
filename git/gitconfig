@@ -1,0 +1,40 @@
+[user]
+name = Jamie Connolly
+email = jamie@jamieconnolly.com
+
+[alias]
+a        = add
+amend    = commit --amend -C HEAD
+br       = branch
+branches = branch -a --color -v
+changes  = diff --name-status -r
+co       = checkout
+d        = diff
+in       = incoming
+irb      = rebase --interactive
+out      = outgoing
+pick     = cherry-pick
+ready    = rebase -i @{u}
+st       = status -sb
+staged   = diff --cached
+undo     = reset --soft HEAD^
+unstage  = reset HEAD
+unstaged = diff
+unstash  = stash pop
+
+[color]
+branch = auto
+diff = auto
+status = auto
+ui = true
+
+[core]
+editor = vim
+excludesfile = /opt/boxen/config/git/gitignore
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[filter "media"]
+clean = git-media-clean %f
+smudge = git-media-smudge %f
