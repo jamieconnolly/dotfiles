@@ -10,6 +10,7 @@ branches = branch -a --color -v
 changes  = diff --name-status -r
 co       = checkout
 d        = diff
+hash     = rev-parse --short HEAD
 in       = incoming
 irb      = rebase --interactive
 out      = outgoing
