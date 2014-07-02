@@ -8,6 +8,10 @@
 #
 #   git delete-branch foobar
 
+if [ "$1" == "master" ]; then
+  echo >&2 "Refusing to delete the branch: $1."; exit 1;
+fi
+
 git push origin :refs/heads/$1
 git remote prune origin
 git branch -D $1
