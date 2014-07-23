@@ -7,20 +7,20 @@
 'metrics':
   'userId': 'd54d08e928a778da03a8823ccdb3fa0fedcf054c'
 'editor':
-  'fontSize': 12
   'fontFamily': 'Menlo'
+  'fontSize': 14
   'showIndentGuide': true
 'core':
-  'themes': [
-    'atom-dark-ui'
-    'monokai'
-  ]
   'disabledPackages': [
     'background-tips'
     'exception-reporting'
     'metrics'
   ]
   'projectHome': '/Users/jamieconnolly/Code'
+  'themes': [
+    'neutron-ui'
+    'neutron-syntax'
+  ]
 'tree-view':
   'hideIgnoredNames': true
   'hideVcsIgnoredFiles': true

@@ -20,6 +20,10 @@ trim_trailing_whitespace = false
 [*.{h,m,pch,xm,xmi}]
 indent_size = 4
 
+; PHP
+[*.php]
+indent_size = 4
+
 ; Python
 [*.py]
 indent_size = 4
