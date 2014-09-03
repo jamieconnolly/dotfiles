@@ -1,7 +1,7 @@
 alias cl="clear"
 alias count="wc -l"
 alias e="$EDITOR"
-alias l="ls -la"
+alias l='ls -lahL'
 alias reload!=". ~/.zshrc"
 
 # Flush Directory Service cache
