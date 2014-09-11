@@ -8,7 +8,10 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
 # Report CPU usage for commands running longer than 10 seconds
-REPORTTIME=10
+export REPORTTIME=10
+
+# Disable the virtualenv prompt.
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
