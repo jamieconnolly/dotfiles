@@ -45,6 +45,22 @@ git_prompt() {
   fi
 }
 
+python_version() {
+  if (( $+commands[pyenv] )); then
+    if ($(pyenv virtualenv-prefix 1>/dev/null 2>&1)); then
+      echo $(basename $(pyenv virtualenv-prefix))
+    elif [[ $(pyenv version-name) != "system" ]]; then
+      echo "$(pyenv version-name)"
+    fi
+  fi
+}
+
+python_prompt() {
+  if ! [[ -z "$(python_version)" ]]; then
+    echo "%{$fg_bold[black]%}python:%{$reset_color%} %{$fg_bold[blue]%}$(python_version)%{$reset_color%}"
+  fi
+}
+
 virtualenv_info() {
   [ $VIRTUAL_ENV ] && echo ''`basename $VIRTUAL_ENV`''
 }
@@ -57,7 +73,7 @@ venv_prompt() {
 
 export PROMPT=$'\n$(venv_prompt)in $(dirname_prompt) $(git_prompt)\n» '
 set_prompt() {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export RPROMPT="$(python_prompt)"
 }
 
 precmd() {
