@@ -45,6 +45,20 @@ git_prompt() {
   fi
 }
 
+node_version() {
+  if (( $+commands[nodenv] )); then
+    if ($(nodenv version 1>/dev/null 2>&1)); then
+      echo "$(nodenv version)"
+    fi
+  fi
+}
+
+node_prompt() {
+  if ! [[ -z "$(node_version)" ]]; then
+    echo " %{$fg_bold[black]%}node: %{$reset_color%}%{$fg_bold[blue]%}$(node_version)%{$reset_color%}"
+  fi
+}
+
 python_version() {
   if (( $+commands[pyenv] )); then
     if ($(pyenv virtualenv-prefix 1>/dev/null 2>&1)); then
@@ -57,7 +71,21 @@ python_version() {
 
 python_prompt() {
   if ! [[ -z "$(python_version)" ]]; then
-    echo "%{$fg_bold[black]%}python:%{$reset_color%} %{$fg_bold[blue]%}$(python_version)%{$reset_color%}"
+    echo " %{$fg_bold[black]%}python: %{$reset_color%}%{$fg_bold[blue]%}$(python_version)%{$reset_color%}"
+  fi
+}
+
+ruby_version() {
+  if (( $+commands[rbenv] )); then
+    if [[ $(rbenv version-name) != "system" ]]; then
+      echo "$(rbenv version-name)"
+    fi
+  fi
+}
+
+ruby_prompt() {
+  if ! [[ -z "$(ruby_version)" ]]; then
+    echo " %{$fg_bold[black]%}ruby: %{$reset_color%}%{$fg_bold[blue]%}$(ruby_version)%{$reset_color%}"
   fi
 }
 
@@ -73,7 +101,7 @@ venv_prompt() {
 
 export PROMPT=$'\n$(venv_prompt)in $(dirname_prompt) $(git_prompt)\n» '
 set_prompt() {
-  export RPROMPT="$(python_prompt)"
+  export RPROMPT="$(node_prompt)$(python_prompt)$(ruby_prompt)"
 }
 
 precmd() {
