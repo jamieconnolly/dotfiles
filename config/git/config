@@ -1,7 +1,3 @@
-[user]
-	name = Jamie Connolly
-	email = jamie@jamieconnolly.com
-
 [alias]
 	a        = add
 	amend    = commit --amend -C HEAD
@@ -31,11 +27,8 @@
 
 [core]
 	editor = vim
-	excludesfile = /opt/boxen/config/git/gitignore
-
-[credential]
-	helper = /opt/boxen/bin/boxen-git-credential
 
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
