@@ -1,1 +1,1 @@
-export EDITOR='atom -nw'
+export EDITOR="atom -nw"
