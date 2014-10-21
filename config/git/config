@@ -21,14 +21,9 @@
 
 [color]
 	branch = auto
-	diff = auto
+	diff   = auto
 	status = auto
-	ui = true
+	ui     = true
 
 [core]
 	editor = vim
-
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
