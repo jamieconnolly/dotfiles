@@ -61,7 +61,7 @@ node_prompt() {
 
 python_version() {
   if (( $+commands[pyenv] )); then
-    if ($(pyenv virtualenv-prefix 1>/dev/null 2>&1)); then
+    if ($(pyenv virtualenv-prefix 2>&1 1>/dev/null)); then
       echo $(basename $(pyenv virtualenv-prefix))
     elif [[ $(pyenv version-name) != "system" ]]; then
       echo "$(pyenv version-name)"
@@ -90,7 +90,9 @@ ruby_prompt() {
 }
 
 virtualenv_info() {
-  [ $VIRTUAL_ENV ] && echo ''`basename $VIRTUAL_ENV`''
+  if [[ -n $VIRTUAL_ENV ]]; then
+    echo "$(basename $VIRTUAL_ENV)"
+  fi
 }
 
 venv_prompt() {
