@@ -32,7 +32,7 @@ git_unpushed() {
 }
 
 git_prompt() {
-  if (( $+commands[git] )) && ($(git rev-parse --git-dir >/dev/null 2>&1)); then
+  if (( $+commands[git] )) && ($(git rev-parse --git-dir 2>&1 1>/dev/null)); then
     if [[ $(git_dirty) == "" ]]; then
       echo -n "on %{$fg_bold[green]%}$(git_branch)%{$reset_color%} "
     else
@@ -47,7 +47,7 @@ git_prompt() {
 
 node_version() {
   if (( $+commands[nodenv] )); then
-    if ($(nodenv version 1>/dev/null 2>&1)); then
+    if ($(nodenv version 2>&1 1>/dev/null)); then
       echo "$(nodenv version)"
     fi
   fi
