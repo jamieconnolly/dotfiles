@@ -32,7 +32,7 @@ git_unpushed() {
 }
 
 git_prompt() {
-  if (( $+commands[git] )) && ($(git rev-parse --git-dir 2>&1 1>/dev/null)); then
+  if (( $+commands[git] )) && ($(git rev-parse --git-dir >/dev/null 2>&1)); then
     if [[ $(git_dirty) == "" ]]; then
       echo -n "on %{$fg_bold[green]%}$(git_branch)%{$reset_color%} "
     else
@@ -47,7 +47,7 @@ git_prompt() {
 
 node_version() {
   if (( $+commands[nodenv] )); then
-    if ($(nodenv version 2>&1 1>/dev/null)); then
+    if ($(nodenv version >/dev/null 2>&1)); then
       echo "$(nodenv version)"
     fi
   fi
@@ -61,7 +61,7 @@ node_prompt() {
 
 python_version() {
   if (( $+commands[pyenv] )); then
-    if ($(pyenv virtualenv-prefix 2>&1 1>/dev/null)); then
+    if ($(pyenv virtualenv-prefix >/dev/null 2>&1)); then
       echo $(basename $(pyenv virtualenv-prefix))
     elif [[ $(pyenv version-name) != "system" ]]; then
       echo "$(pyenv version-name)"
