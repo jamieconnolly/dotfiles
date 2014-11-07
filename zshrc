@@ -1,11 +1,11 @@
-# Make sure Boxen is available.
+# Make sure Boxen is available
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
-# Make the path of the dotfiles available.
+# Make the path of the dotfiles available
 export ZSH=$BOXEN_SRC_DIR/my/dotfiles
 
 # Use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
+# want in your public, versioned repo
 if [ -f ~/.localrc ] ; then
   source ~/.localrc
 fi
