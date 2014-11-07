@@ -7,9 +7,6 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-# Report CPU usage for commands running longer than 10 seconds
-export REPORTTIME=10
-
 # Disable the virtualenv prompt.
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
