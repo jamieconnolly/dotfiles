@@ -10,7 +10,6 @@
     'fontSize': 14
     'lineHeight': 1.5
     'showIndentGuide': true
-    'invisibles': {}
   'core':
     'disabledPackages': [
       'background-tips'
@@ -27,3 +26,4 @@
     'hideVcsIgnoredFiles': true
   'file-icons':
     'coloured': false
+  'linter': {}
