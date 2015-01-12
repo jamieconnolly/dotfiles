@@ -1,4 +1,4 @@
-'global':
+'*':
   'exception-reporting':
     'userId': '3aadc63a-9431-692d-683c-94ff2a17a71f'
   'welcome':
@@ -10,17 +10,18 @@
     'fontSize': 14
     'lineHeight': 1.5
     'showIndentGuide': true
+    'invisibles': {}
   'core':
     'disabledPackages': [
       'background-tips'
       'exception-reporting'
       'metrics'
     ]
-    'projectHome': '/Users/jamieconnolly/Code'
     'themes': [
       'neutron-ui'
       'neutron-syntax'
     ]
+    'projectHome': '/Users/jamieconnolly/Code'
   'tree-view':
     'hideIgnoredNames': true
     'hideVcsIgnoredFiles': true
