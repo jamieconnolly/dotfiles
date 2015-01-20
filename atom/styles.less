@@ -1,11 +1,27 @@
-.editor .git-commit.line-too-long.deprecated {
-  background: transparent;
-  color: orange;
-  text-decoration: none;
-}
+/*
+* Your Stylesheet
+*
+* This stylesheet is loaded when Atom starts up and is reloaded automatically
+* when it is changed.
+*
+* If you are unfamiliar with LESS, you can read more about it here:
+* http://www.lesscss.org
+*/
 
-.editor .git-commit.line-too-long.illegal {
-  background: #DA2C43;
-  color: #fff;
-  opacity: 0.9;
+@import "colors";
+
+atom-text-editor::shadow {
+  // Colorize the first line of git commit messages
+  .git-commit.line-too-long {
+    &.deprecated {
+      background-color: transparent;
+      color: @orange;
+      text-decoration: none;
+    }
+    &.illegal {
+      background-color: @red;
+      color: white;
+      opacity: 0.9;
+    }
+  }
 }

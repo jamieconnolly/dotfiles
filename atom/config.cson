@@ -23,8 +23,8 @@
     ]
     projectHome: "/Users/jamieconnolly/Code"
   "tree-view":
-    hideIgnoredNames: true
     hideVcsIgnoredFiles: true
+    hideIgnoredNames: true
   "file-icons":
     coloured: false
   linter: {}
