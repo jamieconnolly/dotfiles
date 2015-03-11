@@ -18,7 +18,7 @@
       "metrics"
     ]
     themes: [
-      "neutron-ui"
+      "one-dark-ui"
       "neutron-syntax"
     ]
     projectHome: "/Users/jamieconnolly/Code"
