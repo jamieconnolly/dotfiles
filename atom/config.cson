@@ -17,14 +17,16 @@
       "exception-reporting"
       "metrics"
     ]
+    projectHome: "/Users/jamieconnolly/Code"
     themes: [
       "one-dark-ui"
       "neutron-syntax"
     ]
-    projectHome: "/Users/jamieconnolly/Code"
   "tree-view":
     hideVcsIgnoredFiles: true
     hideIgnoredNames: true
   "file-icons":
     coloured: false
   linter: {}
+  "linter-jshint": {}
+  "linter-jscs": {}

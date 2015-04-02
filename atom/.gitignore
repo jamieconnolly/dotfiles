@@ -1,3 +1,4 @@
+.apm/
 .node-gyp/
 .npm/
 compile-cache/
