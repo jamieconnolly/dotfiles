@@ -28,5 +28,9 @@
   "file-icons":
     coloured: false
   linter: {}
-  "linter-jshint": {}
-  "linter-jscs": {}
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
+  "linter-jscs":
+    onlyConfig: true
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
