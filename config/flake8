@@ -1,2 +1,0 @@
-[flake8]
-format = %(path)s: %(text)s on line %(row)s [%(code)s]
