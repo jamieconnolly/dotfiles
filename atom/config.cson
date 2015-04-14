@@ -30,6 +30,8 @@
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
+  "linter-flake8":
+    executableDir: "/opt/boxen/pyenv/shims"
   "linter-jscs":
     onlyConfig: true
   "linter-jshint":
