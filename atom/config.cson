@@ -7,8 +7,6 @@
     userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
   editor:
     fontFamily: "InputMonoNarrow-Regular"
-    fontSize: 14
-    lineHeight: 1.5
     showIndentGuide: true
     invisibles: {}
   core:
@@ -36,3 +34,4 @@
     onlyConfig: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
+  "linter-less": {}
