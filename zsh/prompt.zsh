@@ -47,8 +47,8 @@ git_prompt() {
 
 node_version() {
   if (( $+commands[nodenv] )); then
-    if ($(nodenv version >/dev/null 2>&1)); then
-      echo "$(nodenv version)"
+    if [[ $(nodenv version-name) != "system" ]]; then
+      echo "$(nodenv version-name)"
     fi
   fi
 }
