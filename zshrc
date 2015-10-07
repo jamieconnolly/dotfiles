@@ -2,7 +2,7 @@
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # Make the path of the dotfiles available
-export ZSH=$BOXEN_SRC_DIR/dotfiles
+export ZSH=$HOME/.dotfiles
 
 # Use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo
