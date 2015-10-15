@@ -1,7 +1,7 @@
 alias cl="clear"
 alias count="wc -l"
 alias e="$EDITOR"
-alias l='ls -lahL'
+alias l="ls -lahL"
 alias o="open"
 alias ping="ping -c 5"
 alias reload!=". ~/.zshrc"
