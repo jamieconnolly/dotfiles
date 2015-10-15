@@ -55,7 +55,7 @@ node_version() {
 
 node_prompt() {
   if ! [[ -z "$(node_version)" ]]; then
-    echo " %{$fg_bold[black]%}node: %{$reset_color%}%{$fg_bold[blue]%}$(node_version)%{$reset_color%}"
+    echo " %{$fg_bold[black]%}node:%{$reset_color%}%{$fg_bold[blue]%}$(node_version)%{$reset_color%}"
   fi
 }
 
@@ -71,7 +71,7 @@ python_version() {
 
 python_prompt() {
   if ! [[ -z "$(python_version)" ]]; then
-    echo " %{$fg_bold[black]%}python: %{$reset_color%}%{$fg_bold[blue]%}$(python_version)%{$reset_color%}"
+    echo " %{$fg_bold[black]%}python:%{$reset_color%}%{$fg_bold[blue]%}$(python_version)%{$reset_color%}"
   fi
 }
 
@@ -85,7 +85,7 @@ ruby_version() {
 
 ruby_prompt() {
   if ! [[ -z "$(ruby_version)" ]]; then
-    echo " %{$fg_bold[black]%}ruby: %{$reset_color%}%{$fg_bold[blue]%}$(ruby_version)%{$reset_color%}"
+    echo " %{$fg_bold[black]%}ruby:%{$reset_color%}%{$fg_bold[blue]%}$(ruby_version)%{$reset_color%}"
   fi
 }
 
