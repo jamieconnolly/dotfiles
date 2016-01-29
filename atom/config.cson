@@ -1,14 +1,4 @@
 "*":
-  "exception-reporting":
-    userId: "3aadc63a-9431-692d-683c-94ff2a17a71f"
-  welcome:
-    showOnStartup: false
-  metrics:
-    userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
-  editor:
-    fontFamily: "InputMonoNarrow-Regular"
-    showIndentGuide: true
-    invisibles: {}
   core:
     disabledPackages: [
       "background-tips"
@@ -20,18 +10,28 @@
       "one-dark-ui"
       "neutron-syntax"
     ]
-  "tree-view":
-    hideVcsIgnoredFiles: true
-    hideIgnoredNames: true
+  editor:
+    fontFamily: "InputMonoNarrow-Regular"
+    invisibles: {}
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "3aadc63a-9431-692d-683c-94ff2a17a71f"
   "file-icons":
     coloured: false
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
   "linter-flake8":
-    executableDir: "/opt/boxen/pyenv/shims"
+    executablePath: "/opt/boxen/pyenv/shims/flake8"
   "linter-jscs":
     onlyConfig: true
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "linter-less": {}
+  metrics:
+    userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
