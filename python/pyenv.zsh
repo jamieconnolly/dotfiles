@@ -4,6 +4,6 @@ if (( $+commands[pyenv] )); then
 fi
 
 # Load pyenv-virtualenv
-if (( $+commands[pyenv-virtualenv-init] )); then
+if (( $+commands[pyenv-virtualenv] )); then
   eval "$(pyenv virtualenv-init -)"
 fi
