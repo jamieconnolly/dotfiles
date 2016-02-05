@@ -1,7 +1,7 @@
 autoload colors && colors
 
 current_pwd() {
-  current=$(pwd | sed -e "s,^$HOME,~,")
+  local current=$(pwd | sed -e "s,^$HOME,~,")
   if [[ $current == "/" || $current == "~" ]]; then
     echo $current
   else
@@ -14,32 +14,27 @@ dirname_prompt() {
 }
 
 git_branch() {
-  if (( $+commands[git] )); then
-    echo $(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-  fi
+  echo $(git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
 git_dirty() {
-  if (( $+commands[git] )); then
-    echo $(git status --porcelain)
-  fi
+  echo $(git status --porcelain)
 }
 
 git_unpushed() {
-  if (( $+commands[git] )); then
-    echo $(git cherry -v @{upstream} 2>/dev/null)
-  fi
+  echo $(git cherry -v @{upstream} 2>/dev/null)
 }
 
 git_prompt() {
-  if (( $+commands[git] )) && ($(git rev-parse --git-dir >/dev/null 2>&1)); then
-    if [[ $(git_dirty) == "" ]]; then
-      echo -n "on %{$fg_bold[green]%}$(git_branch)%{$reset_color%} "
+  if $(git rev-parse --git-dir >/dev/null 2>&1); then
+    local git_branch="$(git_branch)"
+    if [ -z "$(git_dirty)" ]; then
+      echo -n "on %{$fg_bold[green]%}$git_branch%{$reset_color%} "
     else
-      echo -n "on %{$fg_bold[red]%}$(git_branch)%{$reset_color%} "
+      echo -n "on %{$fg_bold[red]%}$git_branch%{$reset_color%} "
     fi
 
-    if [[ $(git_unpushed) != "" ]]; then
+    if [ -n "$(git_unpushed)" ]; then
       echo "with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
     fi
   fi
@@ -47,45 +42,53 @@ git_prompt() {
 
 node_version() {
   if (( $+commands[nodenv] )); then
-    if [[ $(nodenv version-name) != "system" ]]; then
-      echo "$(nodenv version-name)"
+    local node_version="$(nodenv version-name)"
+    if [[ $node_version != "system" ]]; then
+      echo $node_version
     fi
   fi
 }
 
 node_prompt() {
-  if ! [[ -z "$(node_version)" ]]; then
-    echo " %{$fg_bold[black]%}node:%{$reset_color%}%{$fg_bold[blue]%}$(node_version)%{$reset_color%}"
+  local node_version="$(node_version)"
+  if ! [ -z $node_version ]; then
+    echo " %{$fg_bold[black]%}node:%{$reset_color%}%{$fg_bold[blue]%}$node_version%{$reset_color%}"
   fi
 }
 
 python_version() {
   if (( $+commands[pyenv] )); then
-    if ($(pyenv virtualenv-prefix >/dev/null 2>&1)); then
+    if [ -n "$VIRTUAL_ENV" ]; then
       echo $(basename $(pyenv virtualenv-prefix))
-    elif [[ $(pyenv version-name) != "system" ]]; then
-      echo "$(pyenv version-name)"
+    else
+      local python_version="$(pyenv version-name)"
+      if [[ $python_version != "system" ]]; then
+        echo $python_version
+      fi
     fi
   fi
 }
 
 python_prompt() {
-  if ! [[ -z "$(python_version)" ]]; then
-    echo " %{$fg_bold[black]%}python:%{$reset_color%}%{$fg_bold[blue]%}$(python_version)%{$reset_color%}"
+  local python_version="$(python_version)"
+  if ! [ -z $python_version ]; then
+    echo " %{$fg_bold[black]%}python:%{$reset_color%}%{$fg_bold[blue]%}$python_version%{$reset_color%}"
   fi
 }
 
 ruby_version() {
   if (( $+commands[rbenv] )); then
-    if [[ $(rbenv version-name) != "system" ]]; then
-      echo "$(rbenv version-name)"
+    local ruby_version="$(rbenv version-name)"
+    if [[ $ruby_version != "system" ]]; then
+      echo $ruby_version
     fi
   fi
 }
 
 ruby_prompt() {
-  if ! [[ -z "$(ruby_version)" ]]; then
-    echo " %{$fg_bold[black]%}ruby:%{$reset_color%}%{$fg_bold[blue]%}$(ruby_version)%{$reset_color%}"
+  local ruby_version="$(ruby_version)"
+  if ! [ -z $ruby_version ]; then
+    echo " %{$fg_bold[black]%}ruby:%{$reset_color%}%{$fg_bold[blue]%}$ruby_version%{$reset_color%}"
   fi
 }
 
@@ -96,8 +99,9 @@ virtualenv_info() {
 }
 
 venv_prompt() {
-  if ! [[ -z "$(virtualenv_info)" ]]; then
-    echo "%{$fg_bold[yellow]%}$(virtualenv_info)%{$reset_color%} "
+  local virtualenv_info="$(virtualenv_info)"
+  if ! [ -z "$virtualenv_info" ]; then
+    echo "%{$fg_bold[yellow]%}$virtualenv_info%{$reset_color%} "
   fi
 }
 
