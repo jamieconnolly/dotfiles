@@ -1,2 +1,2 @@
 #compdef c
-_files -W $BOXEN_SRC_DIR -/
+_files -W $PROJECTS -/

@@ -28,5 +28,20 @@
 [core]
 	editor = vim
 
+[credential]
+	helper = git-credential-osxkeychain
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[hub]
+	protocol = https
+
 [push]
 	default = simple
+
+[user]
+	name = Jamie Connolly
+	email = jamie@jamieconnolly.com
