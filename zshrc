@@ -1,5 +1,5 @@
-# Make sure Boxen is available
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+# Make the path of the code available
+export PROJECTS=$HOME/Code
 
 # Make the path of the dotfiles available
 export ZSH=$HOME/.dotfiles
@@ -15,28 +15,16 @@ typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
 # Load the path.zsh files first
-for file in ${(M)config_files:#*/path.zsh} ; do
-  if [ -f $file ] ; then
-    source $file
-  fi
-done
+for file in ${(M)config_files:#*/path.zsh}; do source $file; done
 
 # Load everything but the path.zsh and completion.zsh config files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh} ; do
-  if [ -f $file ] ; then
-    source $file
-  fi
-done
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do source $file; done
 
 # Initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
 
 # Load every completion.zsh after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh} ; do
-  if [ -f $file ] ; then
-    source $file
-  fi
-done
+for file in ${(M)config_files:#*/completion.zsh}; do source $file; done
 
 unset config_files

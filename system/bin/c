@@ -1,1 +1,1 @@
-cd $BOXEN_SRC_DIR/$1;
+cd $PROJECTS/$1;
