@@ -29,7 +29,7 @@
 	editor = vim
 
 [credential]
-	helper = git-credential-osxkeychain
+	helper = osxkeychain
 
 [filter "lfs"]
 	clean = git-lfs clean %f
