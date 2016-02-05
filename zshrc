@@ -28,3 +28,7 @@ compinit
 for file in ${(M)config_files:#*/completion.zsh}; do source $file; done
 
 unset config_files
+
+# Add ./bin to the path. This happens after initialization to make
+# sure local stubs take precedence over stuff like rbenv.
+export PATH=bin:$PATH
