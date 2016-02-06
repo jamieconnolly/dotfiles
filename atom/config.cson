@@ -19,7 +19,7 @@
   "file-icons":
     coloured: false
   "file-types":
-    "env.*": "source.dotenv"
+    "^.env\.*$": "source.dotenv"
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
