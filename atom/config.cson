@@ -19,7 +19,7 @@
   "file-icons":
     coloured: false
   "file-types":
-    "^.env\.*$": "source.dotenv"
+    "^\.env\.(.*)$": "source.dotenv"
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
@@ -32,6 +32,7 @@
   "linter-less": {}
   metrics:
     userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
+  "test-status": {}
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
