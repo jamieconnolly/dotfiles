@@ -1,5 +1,5 @@
 # Make the path of the code available
-export PROJECTS=$HOME/Code
+export PROJECTS=$HOME/Documents/Code
 
 # Make the path of the dotfiles available
 export ZSH=$HOME/.dotfiles
