@@ -5,7 +5,7 @@
       "exception-reporting"
       "metrics"
     ]
-    projectHome: "/Users/jamieconnolly/Code"
+    projectHome: "/Users/jamieconnolly/Documents/Code"
     themes: [
       "one-dark-ui"
       "neutron-syntax"
@@ -19,7 +19,8 @@
   "file-icons":
     coloured: false
   "file-types":
-    "^\.env\.(.*)$": "source.dotenv"
+    "^.env.*$": "source.dotenv"
+    "^Brewfile$": "source.ruby"
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
