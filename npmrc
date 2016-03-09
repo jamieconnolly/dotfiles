@@ -1,2 +1,5 @@
-# Silence is golden
-loglevel = "silent"
+# what level of logs to report
+loglevel=silent
+
+# registry authentication
+//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
