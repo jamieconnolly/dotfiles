@@ -1,3 +1,3 @@
-alias sb="script/bootstrap"
-alias ss="script/server"
-alias st="script/test"
+alias bb="bin/bootstrap"
+alias bs="bin/server"
+alias bt="bin/test"
