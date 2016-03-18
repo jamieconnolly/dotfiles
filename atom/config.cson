@@ -21,6 +21,7 @@
   "file-types":
     "^.env.*$": "source.dotenv"
     "^Brewfile$": "source.ruby"
+    "^nginx.conf.erb$": "source.nginx"
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
