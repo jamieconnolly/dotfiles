@@ -1,3 +1,3 @@
-fpath=($ZSH/system/bin $ZSH/system/bin/completions $fpath)
+fpath=($ZSH_HOME/system/bin $ZSH_HOME/system/bin/completions $fpath)
 
-autoload -U $ZSH/system/bin/*(:t)
+autoload -U $ZSH_HOME/system/bin/*(:t)
