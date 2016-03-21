@@ -1,8 +1,8 @@
 # Make the path of the code available
-export PROJECTS=$HOME/Documents/Code
+export PROJECT_HOME=$HOME/Documents/Code
 
 # Make the path of the dotfiles available
-export ZSH=$HOME/.dotfiles
+export ZSH_HOME=$HOME/.dotfiles
 
 # Use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo
@@ -12,7 +12,7 @@ fi
 
 # Find all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSH_HOME/**/*.zsh)
 
 # Load the path.zsh files first
 for file in ${(M)config_files:#*/path.zsh}; do source $file; done
