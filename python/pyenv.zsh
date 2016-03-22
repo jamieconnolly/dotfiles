@@ -1,9 +1,9 @@
 # Load pyenv
-if (( $+commands[pyenv] )); then
+if which pyenv &>/dev/null; then
   eval "$(pyenv init -)"
 fi
 
 # Load pyenv-virtualenv
-if (( $+commands[pyenv-virtualenv] )); then
+if which pyenv-virtualenv &>/dev/null; then
   eval "$(pyenv virtualenv-init -)"
 fi
