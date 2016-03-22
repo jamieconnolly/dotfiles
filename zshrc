@@ -1,8 +1,8 @@
+# Make the path of the dotfiles available
+export DOTFILES=$HOME/.dotfiles
+
 # Make the path of the code available
 export PROJECT_HOME=$HOME/Documents/Code
-
-# Make the path of the dotfiles available
-export ZSH_HOME=$HOME/.dotfiles
 
 # Use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo
@@ -12,7 +12,7 @@ fi
 
 # Find all of our zsh files
 typeset -U config_files
-config_files=($ZSH_HOME/**/*.zsh)
+config_files=($DOTFILES/**/*.zsh)
 
 # Load the path.zsh files first
 for file in ${(M)config_files:#*/path.zsh}; do source $file; done
@@ -31,4 +31,4 @@ unset config_files
 
 # Add ./bin and ./node_modules/.bin to the path. This happens after
 # initialization to make sure local stubs take precedence over everything else.
-export PATH=bin:node_modules/.bin:$PATH
+export PATH=./bin:./node_modules/.bin:$PATH
