@@ -1,4 +1,4 @@
 # Load nodenv
-if which nodenv &>/dev/null; then
+if command -v nodenv >/dev/null 2>&1; then
   eval "$(nodenv init -)"
 fi
