@@ -41,7 +41,7 @@ git_prompt() {
 }
 
 node_version() {
-  if (( $+commands[nodenv] )); then
+  if command -v nodenv >/dev/null 2>&1; then
     local node_version="$(nodenv version-name)"
     if [[ $node_version != "system" ]]; then
       echo $node_version
@@ -57,9 +57,10 @@ node_prompt() {
 }
 
 python_version() {
-  if (( $+commands[pyenv] )); then
-    if [ -n "$VIRTUAL_ENV" ]; then
-      echo $(basename $(pyenv virtualenv-prefix))
+  if command -v pyenv >/dev/null 2>&1; then
+    local virtualenv_name="$(virtualenv_name 2>/dev/null)"
+    if ! [ -z $virtualenv_name ]; then
+      echo $(basename $(pyenv virtualenv-prefix $virtualenv_name))
     else
       local python_version="$(pyenv version-name)"
       if [[ $python_version != "system" ]]; then
@@ -77,7 +78,7 @@ python_prompt() {
 }
 
 ruby_version() {
-  if (( $+commands[rbenv] )); then
+  if command -v rbenv >/dev/null 2>&1; then
     local ruby_version="$(rbenv version-name)"
     if [[ $ruby_version != "system" ]]; then
       echo $ruby_version
@@ -92,20 +93,20 @@ ruby_prompt() {
   fi
 }
 
-virtualenv_info() {
-  if [[ -n $VIRTUAL_ENV ]]; then
-    echo "$(basename $VIRTUAL_ENV)"
+virtualenv_name() {
+  if command -v pyenv >/dev/null 2>&1; then
+    echo "$(pyenv virtualenv-name)"
   fi
 }
 
-venv_prompt() {
-  local virtualenv_info="$(virtualenv_info)"
-  if ! [ -z "$virtualenv_info" ]; then
-    echo "%{$fg_bold[yellow]%}$virtualenv_info%{$reset_color%} "
+virtualenv_prompt() {
+  local virtualenv_name="$(virtualenv_name 2>/dev/null)"
+  if ! [ -z "$virtualenv_name" ]; then
+    echo "%{$fg_bold[yellow]%}$virtualenv_name%{$reset_color%} "
   fi
 }
 
-export PROMPT=$'\n$(venv_prompt)in $(dirname_prompt) $(git_prompt)\n» '
+export PROMPT=$'\n$(virtualenv_prompt)in $(dirname_prompt) $(git_prompt)\n» '
 set_prompt() {
   export RPROMPT="$(node_prompt)$(python_prompt)$(ruby_prompt)"
 }
