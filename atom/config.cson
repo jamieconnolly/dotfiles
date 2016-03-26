@@ -32,6 +32,8 @@
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "linter-less": {}
+  "linter-scss-lint":
+    disableWhenNoConfigFileInPath: true
   metrics:
     userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
   "test-status": {}
