@@ -15,6 +15,10 @@ config/hub/
 ### Pip ###
 pip/cache/
 
+### Rbenv ###
+rbenv/*
+!rbenv/default-gems
+
 ### SSH ###
 ssh/*
 !ssh/config
