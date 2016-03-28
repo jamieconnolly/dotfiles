@@ -1,0 +1,16 @@
+### Atom ###
+atom/blob-store/
+atom/compile-cache/
+atom/dev/
+atom/packages/
+atom/storage/
+atom/.apm
+atom/.node-gyp
+atom/.npm
+
+### Config ###
+config/configstore/
+config/hub/
+
+### Pip ###
+pip/cache/
