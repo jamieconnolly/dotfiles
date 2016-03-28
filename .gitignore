@@ -14,3 +14,7 @@ config/hub/
 
 ### Pip ###
 pip/cache/
+
+### SSH ###
+ssh/*
+!ssh/config

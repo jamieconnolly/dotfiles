@@ -1,0 +1,7 @@
+Host *
+  ControlMaster auto
+  ControlPath /tmp/ssh-%r@%h:%p.sock
+  ForwardAgent yes
+  NoHostAuthenticationForLocalhost yes
+	StrictHostKeyChecking ask
+  VerifyHostKeyDNS ask
