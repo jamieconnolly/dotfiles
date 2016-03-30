@@ -1,29 +1,74 @@
 [alias]
-	a        = add
-	amend    = commit --amend -C HEAD
-	br       = branch
-	branches = branch -a --color -v
-	changes  = diff --name-status -r
-	co       = checkout
-	d        = diff
-	hash     = rev-parse --short HEAD
-	in       = incoming
-	irb      = rebase --interactive
-	out      = outgoing
-	pick     = cherry-pick
-	ready    = rebase -i @{u}
-	st       = status -sb
-	staged   = diff --cached
-	undo     = reset --soft HEAD^
-	unstage  = reset HEAD
-	unstaged = diff
-	unstash  = stash pop
+	abort = rebase --abort
+	aliases = !"git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'"
+	amend = !"git commit --amend --reuse-message=HEAD --date=\"$(date)\""
+	assume = update-index --assume-unchanged
+	assumed = !"git ls-files -v | grep '^[hsmrck?]' | cut -c 3-"
+	# big-object-report = !git-big-object-report
+	branches = branch --all --color --verbose
+	changelog = !"git log $(git last-tag).. --pretty=simple --relative-date"
+	changes = diff --name-status
+	churn = !"git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head"
+	cleanup = !"f() { git branch --merged=${1-master} | grep -v \"${1-master}$\" | grep -v '*' | xargs -n 1 git branch -d; }; f"
+	conflicts = !"git ls-files --unmerged | awk '{print $4}' | sort -u"
+	credit = !"f() { git commit --amend --author=\"$1 <$2>\" --reuse-message=HEAD; }; f"
+	current-branch = symbolic-ref --short HEAD
+	done = !"f() { git checkout ${1-master} && git up && git cleanup ${1-master}; }; f"
+	eod = !"git log --all --since=midnight --author=\"$(git config --get user.name)\" --committer=\"$(git config --get user.name)\" --pretty=simple --relative-date"
+	filelog = log -u
+	find = !"git ls-files | grep -i"
+	forget = reset --hard HEAD
+	hash = rev-parse --short HEAD
+	incoming = !"git fetch --quiet && git log --pretty=simple --relative-date ..@{u}"
+	last-tag = describe --tags --abbrev=0
+	lc = !"f() { git ll \"$1\"^..\"$1\"; }; f"
+	lg = log --graph --pretty=extended --date=local
+	ll = log --stat --pretty=extended --date=local
+	ls = log --pretty=extended --date=local
+	lost = !"git fsck --lost-found | awk '/dangling commit/ {print $3}' | git show --pretty=format:'SHA1: %C(auto)%h - %s%C(white) - by %cn, %cr%Creset' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
+	migrate = !"f() { CURRENT=$(git current-branch); git checkout -b $1 && git branch --force $CURRENT ${3-'$CURRENT@{u}'} && git rebase --onto=${2-master} $CURRENT; }; f"
+	ours = !"f() { git checkout --ours $@ && git add $@; }; f"
+	outgoing = log --pretty=simple --relative-date @{u}..
+	publish = push --set-upstream
+	ready = rebase --interactive @{u}
+	review = diff master --unified=20 --ignore-space-change
+	sign = cherry-pick --signoff
+	staged = diff --cached
+	standup = !"git log --all --since=\"$(if [[ $(date +%u) == 1 ]]; then echo 'last friday'; else echo 'yesterday'; fi)\" --author=$(git config --get user.email) --committer=$(git config --get user.email) --pretty=simple --relative-date"
+	theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
+	track = !"git branch --set-upstream-to=origin/$(git current-branch)"
+	unassume = update-index --no-assume-unchanged
+	undo = reset --mixed HEAD^
+	unstage = reset HEAD --
+	unstash = stash pop
+	up = !"git pull --rebase --prune $@ && git submodule update --init --recursive"
+	who = shortlog --numbered --summary --email --
+	wip = commit --all --message="WIP"
+	word-diff = diff --word-diff
+	# wtf = !git-wtf
+
+	# Basic shortcuts
+	a = add
+	b = !"git branches"
+	br = branch
+	ci = commit
+	cl = clone
+	co = checkout
+	cob = checkout -b
+	cp = cherry-pick
+	d = diff
+	fl = !"git filelog"
+	gr = grep -Ii
+	in = !"git incoming"
+	l = !"git ls"
+	out = !"git outgoing"
+	r = git reset
+	s = status --short --branch
+	st = !"git staged"
+	wd = !"git word-diff"
 
 [color]
-	branch = auto
-	diff   = auto
-	status = auto
-	ui     = true
+	ui = auto
 
 [core]
 	editor = vim
@@ -31,13 +76,21 @@
 [credential]
 	helper = osxkeychain
 
+[fetch]
+	prune = true
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
 
 [hub]
+	http-clone = true
 	protocol = https
+
+[pretty]
+	extended = format:"%C(auto)%h%d - %s%C(white) - by %cn, %cd%Creset"
+	simple = format:"%C(auto)%h - %s%C(white) - by %cn, %cr%Creset"
 
 [push]
 	default = simple

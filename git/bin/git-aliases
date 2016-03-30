@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# Usage: git-aliases
-#
-# Show list of configured aliases
-
-git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
