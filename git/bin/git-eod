@@ -1,9 +1,0 @@
-#!/bin/bash
-#
-# Usage: git-eod
-#
-# Remember everything that you've done today
-
-author=$(git config --get user.name)
-
-git log --no-merges --oneline --reverse --author="$author" --branches=* --date=local --since="12AM"
