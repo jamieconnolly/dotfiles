@@ -3,5 +3,5 @@ Host *
   ControlPath /tmp/ssh-%r@%h:%p.sock
   ForwardAgent yes
   NoHostAuthenticationForLocalhost yes
-	StrictHostKeyChecking ask
+  StrictHostKeyChecking ask
   VerifyHostKeyDNS ask
