@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+# Summary: Quick shortcut to an editor.
+
+if [[ -z "$1" ]] ; then
+  $EDITOR .
+else
+  $EDITOR "$1"
+fi

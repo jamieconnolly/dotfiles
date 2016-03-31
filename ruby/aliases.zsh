@@ -1,1 +1,0 @@
-alias bake="bundle exec rake"

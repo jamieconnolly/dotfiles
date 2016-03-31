@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# Summary: Quickly jump into a home directory.
+
+cd "$HOME/$1";
