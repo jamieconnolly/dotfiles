@@ -1,34 +1,28 @@
-# Make the path of the dotfiles available
-export DOTFILES=$HOME/.dotfiles
+fpath=($ZSH/completions(/FN) $fpath)
+autoload -Uz $ZSH/completions/*(:t)
 
-# Make the path of the code available
-export PROJECT_HOME=$HOME/Documents/Code
+fpath=($ZSH/functions(/FN) $fpath)
+autoload -Uz $ZSH/functions/*(:t)
 
-# Use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo
-if [ -f ~/.localrc ] ; then
-  source ~/.localrc
-fi
-
-# Find all of our zsh files
 typeset -U config_files
-config_files=($DOTFILES/**/*.zsh)
+config_files=($ZSH/*.zsh $ZSH/modules/**/*.zsh)
 
-# Load the path.zsh files first
-for file in ${(M)config_files:#*/path.zsh}; do source $file; done
+for config_file in ${(M)config_files:#*/env.zsh}; do
+  source $config_file
+done
 
-# Load everything but the path.zsh and completion.zsh config files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do source $file; done
+for config_file in ${${${config_files:#*/completion.zsh}:#*/env.zsh}:#*/theme.zsh}; do
+  source $config_file
+done
 
-# Initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+for config_file in ${(M)config_files:#*/completion.zsh}; do
+  source $config_file
+done
 
-# Load every completion.zsh after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}; do source $file; done
+for config_file in ${(M)config_files:#*/theme.zsh}; do
+  source $config_file
+done
 
-unset config_files
+unset config_file{s,}
 
-# Add ./bin and ./node_modules/.bin to the path. This happens after
-# initialization to make sure local stubs take precedence over everything else.
-export PATH=./bin:./node_modules/.bin:$PATH
+export PATH=bin:$PATH

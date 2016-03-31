@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# Summary: Quickly jump into a project directory.
+
+cd "$PROJECTS/$1";

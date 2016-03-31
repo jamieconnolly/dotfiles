@@ -1,17 +1,13 @@
+alias bb="bin/bootstrap"
+alias bs="bin/server"
+alias bt="bin/test"
+alias cask="brew cask"
 alias cl="clear"
 alias count="wc -l"
-alias e="$EDITOR"
-alias l="ls -lahL"
-alias o="open"
-alias ping="ping -c 5"
-alias reload!=". ~/.zshrc"
-
-# Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
-
-# IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
-
-# Generate a cryptographically secure secret key
-alias secret="ruby -e \"require 'securerandom'; puts SecureRandom.hex(64)\""
+alias ping="ping -c 5"
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias reload!=". ~/.zshrc"
+alias sha256="shasum -a 256"
