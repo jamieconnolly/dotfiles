@@ -12,10 +12,13 @@ if [[ -z "$LANG" ]]; then
   export LANG="en_GB.UTF-8"
 fi
 
+export GPG_TTY=$(tty)
 export PAGER="less"
 export PROJECTS=$HOME/Documents/Code
 export VISUAL="nano"
 export ZSH=$HOME/.zsh
+
+export ATOM_REPOS_HOME=$PROJECTS/atom
 
 if [[ -f $HOME/.localenv ]]; then
   source $HOME/.localenv

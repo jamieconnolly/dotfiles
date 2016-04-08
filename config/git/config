@@ -68,6 +68,9 @@
 [color]
 	ui = auto
 
+[commit]
+	gpgsign = true
+
 [core]
 	editor = vim
 
@@ -81,6 +84,9 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+
+[gpg]
+  program = gpg2
 
 [hub]
 	http-clone = true
@@ -96,3 +102,4 @@
 [user]
 	name = Jamie Connolly
 	email = jamie@jamieconnolly.com
+	signingkey = 9CEBDE66
