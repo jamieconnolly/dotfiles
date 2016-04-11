@@ -5,7 +5,7 @@
       "exception-reporting"
       "metrics"
     ]
-    projectHome: "/Users/jamieconnolly/Documents/Code"
+    projectHome: "/Users/jamieconnolly/Documents/Code/atom"
     themes: [
       "one-dark-ui"
       "neutron-syntax"
@@ -25,15 +25,10 @@
   linter: {}
   "linter-eslint":
     disableWhenNoEslintrcFileInPath: true
-  "linter-flake8":
-    executablePath: "/Users/jamieconnolly/.pyenv/shims/flake8"
-  "linter-jscs":
-    onlyConfig: true
-  "linter-jshint":
-    disableWhenNoJshintrcFileInPath: true
-  "linter-less": {}
+  "linter-flake8": {}
   "linter-scss-lint":
     disableWhenNoConfigFileInPath: true
+    executablePath: "bin/scss-lint"
   metrics:
     userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
   "test-status": {}
