@@ -14,12 +14,9 @@ fi
 
 export GPG_TTY=$(tty)
 export PAGER="less"
-export PROJECTS=$HOME/Documents/Code
+export PROJECTS_HOME=~/Documents/Code
+export PYTHONSTARTUP=~/.pythonrc
 export VISUAL="nano"
-export ZSH=$HOME/.zsh
+export ZSH=~/.zsh
 
-export ATOM_REPOS_HOME=$PROJECTS/atom
-
-if [[ -f $HOME/.localenv ]]; then
-  source $HOME/.localenv
-fi
+[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

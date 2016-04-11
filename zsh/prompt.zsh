@@ -34,6 +34,6 @@ function user_prompt() {
 }
 
 function precmd() {
-  export PROMPT=$'\n$(user_prompt)$(hostname_prompt)$(dirname_prompt)$(scm_prompt)\n» '
-  export RPROMPT="$(node_prompt)$(python_prompt)$(ruby_prompt)"
+  PROMPT=$'\n$(user_prompt)$(hostname_prompt)$(dirname_prompt)$(scm_prompt)\n» '
+  RPROMPT="$(node_prompt)$(python_prompt)$(ruby_prompt)"
 }

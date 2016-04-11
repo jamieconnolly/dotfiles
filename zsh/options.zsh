@@ -5,7 +5,7 @@ setopt no_case_glob
 # Input/Output
 setopt ignore_eof
 
-# Jobs
+# Job Control
 setopt long_list_jobs
 setopt no_bg_nice
 setopt no_hup
