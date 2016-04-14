@@ -28,7 +28,6 @@
   "linter-flake8": {}
   "linter-scss-lint":
     disableWhenNoConfigFileInPath: true
-    executablePath: "bin/scss-lint"
   metrics:
     userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
   "test-status": {}
