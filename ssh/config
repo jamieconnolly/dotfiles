@@ -4,4 +4,5 @@ Host *
   ForwardAgent yes
   NoHostAuthenticationForLocalhost yes
   StrictHostKeyChecking ask
+  UseRoaming no
   VerifyHostKeyDNS ask
