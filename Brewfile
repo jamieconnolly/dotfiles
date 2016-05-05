@@ -1,3 +1,4 @@
+tap 'caskroom/fonts'
 tap 'jamieconnolly/formulae'
 
 brew 'ack'
@@ -17,3 +18,18 @@ brew 'rbenv-binstubs'
 brew 'rbenv-default-gems'
 brew 'ruby-build'
 brew 'spark'
+
+cask '1password'
+cask 'atom'
+cask 'dropbox'
+cask 'evernote'
+cask 'firefox'
+cask 'flux'
+cask 'franz'
+cask 'github-desktop'
+cask 'google-chrome'
+cask 'postico'
+cask 'recordit'
+cask 'the-unarchiver'
+
+cask 'font-input'
