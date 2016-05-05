@@ -22,5 +22,3 @@ done
 unset config_file{s,}
 
 [[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
-
-export PATH="bin:${PATH}"
