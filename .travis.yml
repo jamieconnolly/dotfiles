@@ -1,0 +1,15 @@
+os: osx
+
+install:
+  - bin/setup
+
+script:
+  - zsh -c "source ~/.zshenv ~/.zshrc"
+
+notifications:
+  email:
+    on_failure: always
+    on_success: never
+
+cache: false
+sudo: false
