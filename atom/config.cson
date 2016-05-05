@@ -20,17 +20,17 @@
     coloured: false
   "file-types":
     "^.env.*$": "source.dotenv"
-    "^Brewfile$": "source.ruby"
     "^nginx.conf.erb$": "source.nginx"
-  linter: {}
+  linter:
+    statusIconScope: "File"
   "linter-eslint":
-    disableWhenNoEslintrcFileInPath: true
+    disableWhenNoEslintConfig: true
   "linter-flake8": {}
+  "linter-rubocop": {}
   "linter-scss-lint":
     disableWhenNoConfigFileInPath: true
   metrics:
     userId: "d54d08e928a778da03a8823ccdb3fa0fedcf054c"
-  "test-status": {}
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
