@@ -5,7 +5,6 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-echo -e "\033[0;36m--> Symlinking dotfiles…\033[0m"
 for DOTFILE in $(pwd -P)/*; do
   [[ "$DOTFILE" == **/bin ]] && continue
   [[ "$DOTFILE" == **/LICENSE ]] && continue
