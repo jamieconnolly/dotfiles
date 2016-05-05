@@ -1,0 +1,32 @@
+#!/bin/bash
+# Auto-update the dotfiles, then re-run setup.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+skip_auto_update() {
+  echo -e "\033[0;33m!!! Skipping auto-update, $@.\033[0m" >&2
+}
+
+if [ ! -d ".git" ]; then
+  skip_auto_update "because this isn't a git checkout yet"
+elif [ -z "$(git symbolic-ref HEAD)" ]; then
+  skip_auto_update "because the checkout isn't on a branch"
+elif [ "$(git symbolic-ref HEAD)" != "refs/heads/master" ]; then
+  skip_auto_update "because the checkout isn't on master"
+elif [ ! -z "$(git status --porcelain 2>/dev/null)" ]; then
+  skip_auto_update "because there are uncommitted changes"
+elif ! git fetch --quiet origin; then
+  skip_auto_update "because running 'git fetch' failed"
+elif [ $(git rev-list --count HEAD..origin/master) != "0" ]; then
+  skip_auto_update "because there are unpushed commits on master"
+elif [ $(git rev-list --count HEAD..origin/master) == "0" ]; then
+  :
+elif ! git reset --hard origin/master 2>&1; then
+  skip_auto_update "because resetting to origin/master was unsuccessful"
+elif ! git clean -qdf; then
+  skip_auto_update "because cleaning up the repo failed"
+fi
+
+bin/setup

@@ -1,0 +1,23 @@
+#!/bin/bash
+# Symlink each dotfile into the $HOME directory.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+echo -e "\033[0;36m--> Symlinking dotfiles…\033[0m"
+for DOTFILE in $(pwd -P)/*; do
+  [[ "$DOTFILE" == **/bin ]] && continue
+  [[ "$DOTFILE" == **/LICENSE ]] && continue
+  [[ "$DOTFILE" == **/README.md ]] && continue
+
+  HOMEFILE="$HOME/.${DOTFILE##*/}"
+  if [[ ! -e "$HOMEFILE" ]] || [[ $(ls -l "$HOMEFILE" | awk '{print $11}') != "$DOTFILE" ]]; then
+    if [[ -L "$HOMEFILE" ]] && [[ ! -d "$DOTFILE" ]]; then
+      ln -sfv "$DOTFILE" "$HOMEFILE"
+    else
+      rm -rf "$HOMEFILE"
+      ln -sv "$DOTFILE" "$HOMEFILE"
+    fi
+  fi
+done
