@@ -1,4 +1,6 @@
-# Dotfiles [![Build Status](https://travis-ci.org/jamieconnolly/dotfiles.png?branch=master)](https://travis-ci.org/jamieconnolly/dotfiles)
+# Dotfiles
+
+[![build-status-image]][travis-ci]
 
 > In Unix-like operating systems, any file or folder that starts with a dot
 > character (for example, /home/user/.config), commonly called a dot file or
@@ -32,3 +34,6 @@ Thank you to everyone who has shared their dotfiles and other shell scripts from
 which I have derived inspiration from.
 
 Feel free to fork this repository, and configure it for yourself.
+
+[build-status-image]: https://img.shields.io/travis/jamieconnolly/dotfiles/master.svg
+[travis-ci]: https://travis-ci.org/jamieconnolly/dotfiles
