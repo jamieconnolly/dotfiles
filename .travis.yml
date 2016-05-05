@@ -1,11 +1,22 @@
 language: objective-c
-os: osx
-
-install:
-  - bin/setup
+matrix:
+  include:
+    - env: MACOS=10.11
+      os: osx
+      osx_image: xcode7.2
+    - env: MACOS=10.10
+      os: osx
+      osx_image: xcode7
+    - env: MACOS=10.9
+      os: osx
+      osx_image: beta-xcode6.1
 
 script:
-  - zsh -c "source ~/.zshenv ~/.zshrc"
+  - bash -n bin/*
+  - bin/setup
+  - export PS1
+  - zsh -c "source ~/.zshenv"
+  - zsh -c "source ~/.zshrc"
 
 notifications:
   email:

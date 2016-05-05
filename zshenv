@@ -17,6 +17,7 @@ export PAGER="less"
 export PROJECTS_HOME=~/Documents/Code
 export PYTHONSTARTUP=~/.pythonrc
 export VISUAL="nano"
-export ZSH=~/.zsh
 
-[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
+if [[ -s ~/.zshenv.local ]]; then
+  source ~/.zshenv.local
+fi
