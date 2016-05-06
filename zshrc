@@ -22,7 +22,3 @@ for config_file in ${(M)config_files:#*/theme.zsh}; do
 done
 
 unset config_file{,s}
-
-if [[ -s ~/.zshrc.local ]]; then
-  source ~/.zshrc.local
-fi
