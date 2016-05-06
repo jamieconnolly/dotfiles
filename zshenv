@@ -18,6 +18,5 @@ export PROJECTS_HOME=~/Documents/Code
 export PYTHONSTARTUP=~/.pythonrc
 export VISUAL="nano"
 
-if [[ -s ~/.zshenv.local ]]; then
-  source ~/.zshenv.local
-fi
+export ATOM_ACCESS_TOKEN="$(security -q find-generic-password -a atom.io -ws "Atom.io API Token" 2>/dev/null)"
+export NPM_ACCESS_TOKEN="$(security -q find-generic-password -a npmjs.org -ws "npm API Token" 2>/dev/null)"
