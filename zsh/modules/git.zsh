@@ -13,7 +13,7 @@ function git_prompt() {
 
 function git_ref_prompt() {
   local git_ref git_ref_prompt
-  git_ref=$(command git current-branch 2>/dev/null || command git current-revision 2>/dev/null)
+  git_ref=$(command git current-ref 2>/dev/null || command git current-rev 2>/dev/null)
 
   if [[ -n "$git_ref" ]]; then
     if [[ -n "$(command git status --porcelain --ignore-submodules=dirty 2>/dev/null | tail -n1)" ]]; then
