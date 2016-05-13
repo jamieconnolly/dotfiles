@@ -1,11 +1,10 @@
 #!/bin/bash
-# Set up the machine with my configuration files.
+# Symlink each dotfile into the $HOME directory.
 
 set -e
 
 cd "$(dirname "$0")/.."
 
-# Symlink my dotfiles.
 for DOTFILE in $(pwd -P)/*; do
   [[ "$DOTFILE" == **/bin ]] && continue
   [[ "$DOTFILE" == **/LICENSE ]] && continue
@@ -21,6 +20,3 @@ for DOTFILE in $(pwd -P)/*; do
     fi
   fi
 done
-
-# Symlink my application settings.
-mackup restore
