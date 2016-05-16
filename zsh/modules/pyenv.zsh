@@ -3,7 +3,7 @@ if command -v pyenv >/dev/null 2>&1; then
 
   function pyenv_prompt() {
     local python_version python_virtualenv
-    python_version="$(pyenv version-name)"
+    python_version="$(pyenv virtualenv-version || pyenv version-name)"
     python_virtualenv="$(pyenv virtualenv-name)"
 
     if [[ -n "$python_virtualenv" ]]; then
