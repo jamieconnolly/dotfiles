@@ -3,7 +3,6 @@ autoload -Uz compinit && compinit -i
 setopt always_to_end
 setopt auto_menu
 setopt auto_name_dirs
-setopt complete_aliases
 setopt complete_in_word
 setopt no_list_beep
 
