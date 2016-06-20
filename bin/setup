@@ -1,5 +1,6 @@
 #!/bin/bash
-# Symlink each dotfile into the $HOME directory.
+# Usage: bin/setup
+# Summary: Symlink each dotfile into the $HOME directory.
 
 set -e
 
