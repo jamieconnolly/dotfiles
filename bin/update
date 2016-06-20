@@ -1,5 +1,6 @@
 #!/bin/bash
-# Auto-update the dotfiles, then re-run setup.
+# Usage: bin/update
+# Summary: Auto-update the repository, then re-run setup.
 
 set -e
 
