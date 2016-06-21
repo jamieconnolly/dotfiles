@@ -78,6 +78,9 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 
+[diff]
+	compactionHeuristic = true
+
 [credential]
 	helper = osxkeychain
 
