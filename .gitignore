@@ -1,10 +1,19 @@
-### Pip ###
+### nodenv ###
+nodenv/*
+!nodenv/version
+
+### pip ###
 pip/cache/
 
-### Rbenv ###
+### pyenv ###
+pyenv/*
+!pyenv/version
+
+### rbenv ###
 rbenv/*
 !rbenv/default-gems
+!rbenv/version
 
-### SSH ###
+### ssh ###
 ssh/*
 !ssh/config
