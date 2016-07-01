@@ -1,12 +1,12 @@
 setopt prompt_subst
 
 function dirname_prompt() {
-  echo "$ZSH_THEME_DIRNAME_PROMPT_PREFIX${PWD/#$HOME/~}$ZSH_THEME_DIRNAME_PROMPT_SUFFIX"
+  echo "${ZSH_THEME_DIRNAME_PROMPT_PREFIX}${PWD/#$HOME/~}${ZSH_THEME_DIRNAME_PROMPT_SUFFIX}"
 }
 
 function hostname_prompt() {
-  if [[ -n "${SSH_CONNECTION}" ]]; then
-    echo "$ZSH_THEME_HOSTNAME_PROMPT_PREFIX%m$ZSH_THEME_HOSTNAME_PROMPT_SUFFIX"
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    echo "${ZSH_THEME_HOSTNAME_PROMPT_PREFIX}%m${ZSH_THEME_HOSTNAME_PROMPT_SUFFIX}"
     return 0
   else
     return 1
@@ -17,7 +17,7 @@ function scm_prompt() {
   local scm_prompt="$(git_prompt || true)"
 
   if [[ -n "$scm_prompt" ]]; then
-    echo "$ZSH_THEME_SCM_PROMPT_PREFIX$scm_prompt$ZSH_THEME_SCM_PROMPT_SUFFIX"
+    echo "${ZSH_THEME_SCM_PROMPT_PREFIX}${scm_prompt}${ZSH_THEME_SCM_PROMPT_SUFFIX}"
     return 0
   else
     return 1
@@ -26,7 +26,7 @@ function scm_prompt() {
 
 function user_prompt() {
   if [[ $USER = "root" ]]; then
-    echo "$ZSH_THEME_USER_PROMPT_PREFIX%n$ZSH_THEME_USER_PROMPT_SUFFIX"
+    echo "${ZSH_THEME_USER_PROMPT_PREFIX}%n${ZSH_THEME_USER_PROMPT_SUFFIX}"
     return 0
   else
     return 1
