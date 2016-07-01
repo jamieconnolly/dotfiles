@@ -3,7 +3,7 @@ if command -v rbenv >/dev/null 2>&1; then
 
   function rbenv_prompt() {
     if [ -n "$(rbenv version-file $PWD)" ]; then
-      echo "$ZSH_THEME_RBENV_PROMPT_PREFIX$(rbenv version-name)$ZSH_THEME_RBENV_PROMPT_SUFFIX"
+      echo "${ZSH_THEME_RBENV_PROMPT_PREFIX}$(rbenv version-name)${ZSH_THEME_RBENV_PROMPT_SUFFIX}"
       return 0
     else
       return 1

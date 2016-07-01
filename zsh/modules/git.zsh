@@ -4,7 +4,7 @@ function git_prompt() {
   git_remote_status="$(git_remote_status_prompt)"
 
   if [[ -n "$git_ref" ]]; then
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX$git_ref$git_remote_status$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    echo "${ZSH_THEME_GIT_PROMPT_PREFIX}${git_ref}${git_remote_status}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
     return 0
   else
     return 1
@@ -17,12 +17,12 @@ function git_ref_prompt() {
 
   if [[ -n "$git_ref" ]]; then
     if [[ -n "$(command git status --porcelain --ignore-submodules=dirty 2>/dev/null | tail -n1)" ]]; then
-      git_ref_prompt="$ZSH_THEME_GIT_REF_PROMPT_DIRTY_PREFIX$git_ref$ZSH_THEME_GIT_REF_PROMPT_DIRTY_SUFFIX"
+      git_ref_prompt="${ZSH_THEME_GIT_REF_PROMPT_DIRTY_PREFIX}${git_ref}${ZSH_THEME_GIT_REF_PROMPT_DIRTY_SUFFIX}"
     else
-      git_ref_prompt="$ZSH_THEME_GIT_REF_PROMPT_CLEAN_PREFIX$git_ref$ZSH_THEME_GIT_REF_PROMPT_CLEAN_SUFFIX"
+      git_ref_prompt="${ZSH_THEME_GIT_REF_PROMPT_CLEAN_PREFIX}${git_ref}${ZSH_THEME_GIT_REF_PROMPT_CLEAN_SUFFIX}"
     fi
 
-    echo "$ZSH_THEME_GIT_REF_PROMPT_PREFIX$git_ref_prompt$ZSH_THEME_GIT_REF_PROMPT_SUFFIX"
+    echo "${ZSH_THEME_GIT_REF_PROMPT_PREFIX}${git_ref_prompt}${ZSH_THEME_GIT_REF_PROMPT_SUFFIX}"
     return 0
   else
     return 1
@@ -40,14 +40,14 @@ function git_remote_status_prompt() {
     if [[ $ahead -eq 0 ]] && [[ $behind -eq 0 ]]; then
       return 0
     elif [[ $ahead -gt 0 ]] && [[ $behind -eq 0 ]]; then
-      git_remote_status_prompt="$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_AHEAD_PREFIX$((ahead)) ahead$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_AHEAD_SUFFIX"
+      git_remote_status_prompt="${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_AHEAD_PREFIX}$((ahead)) ahead${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_AHEAD_SUFFIX}"
     elif [[ $behind -gt 0 ]] && [[ $ahead -eq 0 ]]; then
-      git_remote_status_prompt="$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_BEHIND_PREFIX$((behind)) behind$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_BEHIND_SUFFIX"
+      git_remote_status_prompt="${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_BEHIND_PREFIX}$((behind)) behind${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_BEHIND_SUFFIX}"
     elif [[ $ahead -gt 0 ]] && [[ $behind -gt 0 ]]; then
-      git_remote_status_prompt="$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_DIVERGED_PREFIX$((ahead)) ahead, $((behind)) behind$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_DIVERGED_SUFFIX"
+      git_remote_status_prompt="${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_DIVERGED_PREFIX}$((ahead)) ahead, $((behind)) behind${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_DIVERGED_SUFFIX}"
     fi
 
-    echo "$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_PREFIX$git_remote_status_prompt$ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_SUFFIX"
+    echo "${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_PREFIX}${git_remote_status_prompt}${ZSH_THEME_GIT_REMOTE_STATUS_PROMPT_SUFFIX}"
     return 0
   else
     return 1
