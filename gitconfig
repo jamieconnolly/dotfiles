@@ -68,6 +68,9 @@
 	st = status --short --branch
 	wd = word-diff
 
+[apply]
+	whitespace = fix
+
 [color]
 	ui = auto
 
@@ -77,12 +80,13 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
-
-[diff]
-	compactionHeuristic = true
+	mergeoptions = --no-edit
 
 [credential]
 	helper = osxkeychain
+
+[diff]
+	compactionHeuristic = true
 
 [fetch]
 	prune = true
@@ -91,6 +95,9 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+
+[help]
+	autocorrect = 1
 
 [github]
 	user = jamieconnolly
