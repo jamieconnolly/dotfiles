@@ -1,2 +1,3 @@
 #compdef c
 _files -W $PROJECTS_HOME -/
+_files -W $PROJECTS_HOME/$GITHUB_USER -/

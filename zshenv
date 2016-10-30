@@ -12,6 +12,7 @@ if [[ -z "$LANG" ]]; then
   export LANG="en_GB.UTF-8"
 fi
 
+export GITHUB_USER="$(git config github.user)"
 export GPG_TTY=$(tty)
 export PAGER="less"
 export PROJECTS_HOME=~/Documents/Code
