@@ -1,8 +1,4 @@
 #!/usr/bin/env zsh
-# Summary: Quick shortcut to an editor.
+# Summary: Open the specified directory in your editor
 
-if [[ -z "$1" ]] ; then
-  $EDITOR .
-else
-  $EDITOR "$1"
-fi
+exec "$EDITOR" "${1:-.}"
