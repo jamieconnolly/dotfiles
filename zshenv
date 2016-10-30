@@ -15,7 +15,7 @@ fi
 export GITHUB_USER="$(git config github.user)"
 export GPG_TTY=$(tty)
 export PAGER="less"
-export PROJECTS_HOME=~/Documents/Code
+export PROJECTS_HOME=~/Code
 export PYTHONSTARTUP=~/.pythonrc
 export VISUAL="nano"
 
