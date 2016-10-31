@@ -11,6 +11,17 @@ alias -g ....="../../.."
 alias -g .....="../../../.."
 alias -g ......="../../../../.."
 
+alias -- -='cd -'
+
+alias cp="cp -iRv"
+alias md="mkdir"
+alias mkdir="mkdir -pv"
+alias mv="mv -iv"
+alias rd="rmdir"
+alias rm="rm -iv"
+
+alias df="df -kH"
+alias du="du -ksh"
 alias l="ls -lah"
 alias la="ls -lAh"
 alias ll="ls -lh"
