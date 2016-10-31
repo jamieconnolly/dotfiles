@@ -1,8 +1,9 @@
 bindkey -e
-bindkey "^[^[[D" backward-word
-bindkey "^[^[[C" forward-word
-bindkey "^[[5D" beginning-of-line
-bindkey "^[[5C" end-of-line
+
+bindkey '^?' backward-delete-char
+bindkey '^w' backward-kill-word
 bindkey "^[[3~" delete-char
-bindkey "^[^N" newtab
-bindkey "^?" backward-delete-char
+bindkey "^[3;5~" delete-char
+bindkey "\e[3~" delete-char
+bindkey "^u" history-beginning-search-backward
+bindkey "^v" history-beginning-search-forward
