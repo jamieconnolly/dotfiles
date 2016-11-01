@@ -52,18 +52,19 @@
 	a = add
 	b = branches
 	br = branch
-	ci = commit
+	c = commit
 	cl = clone
 	co = checkout
 	cob = checkout -b
 	com = checkout master
 	cp = cherry-pick
-	d = diff
+	d = !"f() { git diff --color $@ | sed 's/^\\([^-+ ]*\\)[-+ ]/\\1/' | less --tabs=4 -FRX; }; f"
 	fl = filelog
 	gr = grep -Ii
 	in = incoming
 	l = ls
 	out = outgoing
+	p = push
 	r = git reset
 	st = status --short --branch
 	wd = word-diff
@@ -81,11 +82,13 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 	mergeoptions = --no-edit
+	pager = "less --tabs=1,5 -FRX"
 
 [credential]
 	helper = osxkeychain
 
 [diff]
+	algorithm = patience
 	compactionHeuristic = true
 
 [fetch]
@@ -103,7 +106,7 @@
 	user = jamieconnolly
 
 [gpg]
-  program = gpg2
+	program = gpg2
 
 [hub]
 	http-clone = true
