@@ -1,3 +1,14 @@
 #compdef c
-_files -W $PROJECTS_HOME -/
-_files -W $PROJECTS_HOME/$GITHUB_USER -/
+
+local curcontext="$curcontext" state line ret=1 projects
+
+_arguments -C '1: :->projects' && ret=0
+
+case $state in
+  projects)
+    projects=($(find $PROJECTS_HOME -maxdepth 2 -mindepth 1 -type d | sed -E "s:${PROJECTS_HOME}(/${GITHUB_USER})?/?::g"))
+    _describe -t projects 'projects' projects && ret=0
+    ;;
+esac
+
+return ret
