@@ -10,9 +10,9 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '==> Public key copied to p
 alias reload!=". ~/.zshrc"
 alias sha256="shasum -a 256"
 
-alias gc="git commit"
-alias gd="git diff"
-alias gp="git push"
+alias gc="git c"
+alias gd="git d"
+alias gp="git p"
 
 alias gpg="gpg2"
 
