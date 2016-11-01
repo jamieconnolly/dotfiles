@@ -6,7 +6,7 @@ _arguments -C '1: :->projects' && ret=0
 
 case $state in
   projects)
-    projects=($(find $PROJECTS_HOME -maxdepth 2 -mindepth 1 -type d | sed -E "s:${PROJECTS_HOME}(/${GITHUB_USER})?/?::g"))
+    projects=($(find $PROJECTS_HOME -maxdepth 2 -mindepth 1 -type d | sed "s:^${PROJECTS_HOME}\\(/${GITHUB_USER}\\)\{0,1\}/\{0,1\}::g"))
     _describe -t projects 'projects' projects && ret=0
     ;;
 esac
