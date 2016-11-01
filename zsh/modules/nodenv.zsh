@@ -1,5 +1,5 @@
 if command -v nodenv >/dev/null 2>&1; then
-  eval "$(nodenv init - --no-rehash)"
+  eval "$(nodenv init --no-rehash - zsh)"
 fi
 
 function nodenv_prompt() {
