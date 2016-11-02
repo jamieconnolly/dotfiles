@@ -1,4 +1,4 @@
-unalias run-help
+unalias run-help 2>/dev/null
 
 autoload run-help
 autoload run-help-git
