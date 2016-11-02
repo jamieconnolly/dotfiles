@@ -1,3 +1,7 @@
+# atom
+atom/*
+!atom/config.cson
+
 # pip
 pip/cache/
 

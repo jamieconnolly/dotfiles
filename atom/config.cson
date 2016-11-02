@@ -1,0 +1,45 @@
+"*":
+  autosave:
+    enabled: true
+  core:
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+      "whitespace"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "neutron-syntax"
+    ]
+  editor:
+    fontFamily: "InputMonoNarrow-Regular"
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+  "file-icons":
+    coloured: false
+  linter:
+    showErrorPanel: false
+    showErrorTabFile: false
+    showErrorTabProject: false
+    statusIconScope: "File"
+  "markdown-preview":
+    useGitHubStyle: true
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+  tabs:
+    alwaysShowTabBar: false
+    enableVcsColoring: true
+  "tree-view":
+    autoReveal: true
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
+  welcome:
+    showOnStartup: false
