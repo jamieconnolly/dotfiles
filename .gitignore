@@ -1,6 +1,7 @@
 # atom
 atom/*
 !atom/config.cson
+!atom/default-packages
 
 # bundler
 bundle/*
