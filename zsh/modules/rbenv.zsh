@@ -1,5 +1,5 @@
 if command -v rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init --no-rehash - zsh)"
+  eval "$(rbenv init - zsh)"
 fi
 
 function rbenv_prompt() {

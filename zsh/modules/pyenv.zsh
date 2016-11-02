@@ -1,5 +1,5 @@
 if command -v pyenv >/dev/null 2>&1; then
-  eval "$(pyenv init --no-rehash - zsh)"
+  eval "$(pyenv init - zsh)"
 fi
 
 function pyenv_prompt() {
