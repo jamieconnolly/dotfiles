@@ -1,6 +1,4 @@
-# This file is for unifying the coding style for different editors
-# and IDEs. EditorConfig is awesome: http://EditorConfig.org
-
+# http://editorconfig.org
 root = true
 
 [*]
@@ -9,25 +7,28 @@ end_of_line = lf
 indent_size = 2
 indent_style = space
 insert_final_newline = true
+max_line_length = 119
 trim_trailing_whitespace = true
 
-; Markdown
-[*.md]
+[Makefile]
 indent_size = 4
+indent_style = tab
+
+[*.go]
+indent_size = 4
+indent_style = tab
+
+[*.md]
 trim_trailing_whitespace = false
 
-; Objective-C
 [*.{h,m,pch,xm,xmi}]
 indent_size = 4
 
-; PHP
 [*.php]
 indent_size = 4
 
-; Python
 [*.py]
 indent_size = 4
 
-; Swift
 [*.swift]
 indent_size = 4
