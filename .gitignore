@@ -2,6 +2,10 @@
 atom/*
 !atom/config.cson
 
+# bundler
+bundle/*
+!bundle/config
+
 # pip
 pip/cache/
 
