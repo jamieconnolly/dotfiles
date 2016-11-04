@@ -15,8 +15,8 @@ fi
 export GITHUB_USER="$(git config github.user)"
 export GPG_TTY=$(tty)
 export PAGER="less"
-export PROJECTS_HOME=~/Code
-export PYTHONSTARTUP=~/.pythonrc
+export PROJECTS_HOME="$HOME/Code"
+export PYTHONSTARTUP="$HOME/.pythonrc"
 export VISUAL="nano"
 
 export ATOM_ACCESS_TOKEN="$(security -q find-generic-password -a atom.io -ws "Atom.io API Token" 2>/dev/null)"
