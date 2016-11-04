@@ -12,6 +12,6 @@ setopt share_history
 alias history="fc -l 1"
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 
-HISTFILE=~/.zhistory
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000

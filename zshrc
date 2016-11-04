@@ -1,4 +1,4 @@
-ZSH_FILES=~/.zsh
+ZSH_FILES="$HOME/.zsh"
 
 fpath=($ZSH_FILES/completions(/FN) $fpath)
 autoload -Uz $ZSH_FILES/completions/*(:t)
