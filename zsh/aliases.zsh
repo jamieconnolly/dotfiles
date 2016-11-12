@@ -19,6 +19,7 @@ alias gpg="gpg2"
 
 alias h="handles"
 alias hb="handles bootstrap"
-alias hs="handles setup"
+alias hs="handles start"
+alias hse="handles setup"
 alias ht="handles test"
 alias hu="handles update"
