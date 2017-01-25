@@ -2,6 +2,7 @@
 atom/*
 !atom/config.cson
 !atom/default-packages
+!atom/styles.less
 
 # bundler
 bundle/*

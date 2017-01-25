@@ -1,9 +1,10 @@
 editorconfig
 file-icons
-file-types
+language-dotenv
+language-ini
+language-nginx
 linter
 minimap
 minimap-find-and-replace
 minimap-git-diff
 minimap-highlight-selected
-neutron-syntax
