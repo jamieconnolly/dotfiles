@@ -2,6 +2,16 @@
   autosave:
     enabled: true
   core:
+    customFileTypes:
+      "source.dotenv": [
+        ".env.example"
+      ]
+      "source.nginx": [
+        "nginx.conf.erb"
+      ]
+      "source.shell": [
+        "bats"
+      ]
     disabledPackages: [
       "background-tips"
       "exception-reporting"
@@ -9,10 +19,6 @@
       "whitespace"
     ]
     telemetryConsent: "no"
-    themes: [
-      "one-dark-ui"
-      "neutron-syntax"
-    ]
   editor:
     fontFamily: "InputMonoNarrow-Regular"
     showIndentGuide: true
@@ -33,11 +39,14 @@
       "find-and-replaceDecorationsZIndex": 0
       "git-diff": true
       "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
   tabs:
     alwaysShowTabBar: false
     enableVcsColoring: true
   "tree-view":
     autoReveal: true
+    focusOnReveal: false
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
     squashDirectoryNames: true
