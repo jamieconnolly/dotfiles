@@ -2,22 +2,20 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER="open"
 fi
 
-if [[ -n "$SSH_CONNECTION" ]]; then
+if [ -n "$SSH_CONNECTION" ]; then
   export EDITOR="vim"
 else
   export EDITOR="atom"
 fi
 
-if [[ -z "$LANG" ]]; then
+if [ -z "$LANG" ]; then
   export LANG="en_GB.UTF-8"
 fi
 
-export GITHUB_USER="$(git config github.user)"
 export GPG_TTY=$(tty)
 export PAGER="less"
-export PROJECTS_HOME="$HOME/Projects"
 export PYTHONSTARTUP="$HOME/.pythonrc"
 export VISUAL="nano"
 
-export ATOM_ACCESS_TOKEN="$(security -q find-generic-password -a atom.io -ws "Atom.io API Token" 2>/dev/null)"
-export NPM_ACCESS_TOKEN="$(security -q find-generic-password -a npmjs.org -ws "npm API Token" 2>/dev/null)"
+export GITHUB_USER="$(git config github.user)"
+export PROJECTS_HOME="$HOME/Projects"
