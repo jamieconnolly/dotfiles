@@ -1,6 +1,6 @@
 # Dotfiles
 
-[![build-status-image]][travis-ci]
+[![Build Status][build-status-image]][build-status-url]
 
 > In Unix-like operating systems, any file or folder that starts with a dot
 > character (for example, /home/user/.config), commonly called a dot file or
@@ -15,7 +15,7 @@ These are the steps for installing on a clean machine:
 ```
 git clone https://github.com/jamieconnolly/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-bin/setup
+script/setup
 ```
 
 ## Updating
@@ -25,7 +25,7 @@ sure that they are kept up-to-date.
 
 ```
 cd ~/.dotfiles
-bin/update
+script/update
 ```
 
 ## Thanks
@@ -35,5 +35,5 @@ which I have derived inspiration from.
 
 Feel free to fork this repository, and configure it for yourself.
 
-[build-status-image]: https://img.shields.io/travis/jamieconnolly/dotfiles/master.svg
-[travis-ci]: https://travis-ci.org/jamieconnolly/dotfiles
+[build-status-image]: https://api.travis-ci.org/jamieconnolly/dotfiles.svg?branch=master
+[build-status-url]: https://travis-ci.org/jamieconnolly/dotfiles
