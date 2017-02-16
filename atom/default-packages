@@ -4,6 +4,8 @@ language-dotenv
 language-ini
 language-nginx
 linter
+linter-eslint
+linter-stylelint
 minimap
 minimap-find-and-replace
 minimap-git-diff
