@@ -3,8 +3,8 @@ os: osx
 osx_image: xcode8.2
 
 script:
-  - bash -n bin/*
-  - bin/setup
+  - bash -n script/*
+  - script/setup
   - export PS1
   - zsh -c "source ~/.zshenv"
   - zsh -c "source ~/.zshrc"
