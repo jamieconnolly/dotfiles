@@ -9,9 +9,7 @@ echo "==> Installing dotfiles…"
 for DOTFILE in $(pwd -P)/*; do
   [[ "$DOTFILE" == **/script ]] && continue
   [[ "$DOTFILE" == **/*.md ]] && continue
-  [[ "$DOTFILE" == **/*.txt ]] && continue[[ "$DOTFILE" == **/Library ]] && continue
-  [[ "$DOTFILE" == **/npmrc ]] && continue  # temp
-  [[ "$DOTFILE" == **/pypirc ]] && continue  # temp
+  [[ "$DOTFILE" == **/*.txt ]] && continue
 
   HOMEFILE="${HOME}/.${DOTFILE##*/}"
   if [[ ! -e "$HOMEFILE" ]] || [[ $(ls -l "$HOMEFILE" | awk '{print $11}') != "$DOTFILE" ]]; then
