@@ -5,8 +5,12 @@
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
+DOTFILES_ROOT=$(pwd -P)
+
+# Install dotfiles
+
 echo "==> Installing dotfiles…"
-for DOTFILE in $(pwd -P)/*; do
+for DOTFILE in ${DOTFILES_ROOT}/*; do
   [[ "$DOTFILE" == **/script ]] && continue
   [[ "$DOTFILE" == **/*.md ]] && continue
   [[ "$DOTFILE" == **/*.txt ]] && continue
@@ -21,3 +25,18 @@ for DOTFILE in $(pwd -P)/*; do
     fi
   fi
 done
+
+# Install Atom packages
+
+if command -v apm >/dev/null 2>&1; then
+  echo "==> Installing Atom packages…"
+  while IFS=" " read -r -a line; do
+    [ "${#line[@]}" -gt 0 ] || continue
+    [ "${line[0]:0:1}" != "#" ] || continue
+
+    pkg_name="${line[0]}"
+    if [ ! -d "${HOME}/.atom/packages/${pkg_name}" ]; then
+      apm install "$pkg_name"
+    fi
+  done < "${DOTFILES_ROOT}/atom/default-packages"
+fi
