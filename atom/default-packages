@@ -5,6 +5,7 @@ language-ini
 language-nginx
 linter
 linter-eslint
+linter-shellcheck
 linter-stylelint
 minimap
 minimap-find-and-replace
