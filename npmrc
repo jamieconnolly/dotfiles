@@ -1,5 +1,2 @@
 # what level of logs to report
 loglevel=silent
-
-# registry authentication
-//registry.npmjs.org/:_authToken=${NPM_ACCESS_TOKEN}
