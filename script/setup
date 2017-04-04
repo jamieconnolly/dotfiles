@@ -5,7 +5,7 @@
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
-DOTFILES_ROOT=$(pwd -P)
+DOTFILES_ROOT="$(pwd -P)"
 
 # Install dotfiles
 
@@ -25,6 +25,31 @@ for DOTFILE in ${DOTFILES_ROOT}/*; do
     fi
   fi
 done
+
+# Install Homebrew dependencies
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  brew bundle check &>/dev/null || {
+    echo "Installing Homebrew dependencies…"
+    brew bundle --global
+  }
+fi
+
+# Set ZSH as the default shell
+
+if [ "$TRAVIS" != "true" ]; then
+  ZSH_PATH=$(command -v zsh)
+
+  if ! grep "$ZSH_PATH" /etc/shells >/dev/null 2>&1; then
+    echo "==> Adding $ZSH_PATH to /etc/shells…"
+    echo $ZSH_PATH | sudo -n tee -a /etc/shells >/dev/null
+  fi
+
+  if [ "$(dscl . -read $HOME UserShell 2>/dev/null | cut -d" " -f2)" != "$ZSH_PATH" ]; then
+    echo "==> Setting ZSH as the default shell…"
+    sudo -n chsh -s "$ZSH_PATH" "$(whoami)"
+  fi
+fi
 
 # Install Atom packages
 
