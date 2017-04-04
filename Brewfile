@@ -6,7 +6,7 @@ brew 'autoconf'
 brew 'forego'
 brew 'git'
 brew 'glide'
-brew 'gnupg@2.1'
+brew 'gnupg'
 brew 'guetzli'
 brew 'handles'
 brew 'hub'
@@ -40,3 +40,7 @@ cask 'recordit'
 cask 'the-unarchiver'
 
 cask 'font-input'
+
+mas 'Pocket', id: 568494494
+mas 'Reeder', id: 880001334
+mas 'Tweetbot', id: 557168941
