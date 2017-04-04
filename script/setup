@@ -29,10 +29,14 @@ done
 # Install Homebrew dependencies
 
 if [ "$(uname -s)" = "Darwin" ]; then
-  brew bundle check &>/dev/null || {
-    echo "Installing Homebrew dependencies…"
-    brew bundle --global
-  }
+  echo "==> Installing Homebrew dependencies…"
+  if [ -z "$TRAVIS" ]; then
+    brew bundle check &>/dev/null || {
+      brew bundle --global
+    }
+  else
+    echo "Skipping Homebrew dependencies for CI"
+  fi
 fi
 
 # Set ZSH as the default shell
