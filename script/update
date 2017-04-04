@@ -20,7 +20,7 @@ elif [ "$(git symbolic-ref HEAD)" != "refs/heads/master" ]; then
 elif [ ! -z "$(git status --porcelain 2>/dev/null)" ]; then
   skip_auto_update "because there are uncommitted changes"
 elif ! git fetch --quiet origin; then
-  skip_auto_update "because running `git fetch` failed"
+  skip_auto_update "because running \`git fetch\` failed"
 elif [ "$(git rev-list --count origin/master..master)" != "0" ]; then
   skip_auto_update "because there are unpushed commits on master"
 elif [ "$(git rev-list --count HEAD..origin/master)" == "0" ]; then
