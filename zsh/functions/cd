@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+# Summary: Quickly jump into a project directory
+
+if ! builtin cd "$@" &>/dev/null; then
+  if [ -s "${PROJECTS_HOME}/${GITHUB_USER}/${1}" ]; then
+    builtin cd "${PROJECTS_HOME}/${GITHUB_USER}/${1}" && return
+  elif [ -s "${PROJECTS_HOME}/${1}" ]; then
+    builtin cd "${PROJECTS_HOME}/${1}" && return
+  elif [ ! -d "$1" ]; then
+    echo "cd: no such directory: ${1}" >&2 && return 1
+  else
+    echo "cd: no such file or directory: ${1}" >&2 && return 1
+  fi
+fi
