@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-# Summary: Quickly jump into a project directory
-
-if [ ! -z "$1" ] && [ -s "$PROJECTS_HOME/$GITHUB_USER/$1" ]; then
-  cd "$PROJECTS_HOME/$GITHUB_USER/$1";
-else
-  cd "$PROJECTS_HOME/$1";
-fi
