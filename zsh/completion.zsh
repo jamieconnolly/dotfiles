@@ -1,5 +1,3 @@
-autoload -Uz compinit && compinit -i
-
 setopt always_to_end
 setopt auto_menu
 setopt auto_name_dirs

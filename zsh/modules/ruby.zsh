@@ -1,5 +1,6 @@
 function ruby_prompt() {
-  local ruby_prompt="$(rbenv_prompt || true)"
+  local ruby_prompt
+  ruby_prompt="$(rbenv_prompt || true)"
 
   if [[ -n "$ruby_prompt" ]]; then
     echo "${ZSH_THEME_RUBY_PROMPT_PREFIX}${ruby_prompt}${ZSH_THEME_RUBY_PROMPT_SUFFIX}"

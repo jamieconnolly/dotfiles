@@ -14,7 +14,8 @@ function hostname_prompt() {
 }
 
 function scm_prompt() {
-  local scm_prompt="$(git_prompt || true)"
+  local scm_prompt
+  scm_prompt="$(git_prompt || true)"
 
   if [[ -n "$scm_prompt" ]]; then
     echo "${ZSH_THEME_SCM_PROMPT_PREFIX}${scm_prompt}${ZSH_THEME_SCM_PROMPT_SUFFIX}"
@@ -36,4 +37,5 @@ function user_prompt() {
 function precmd() {
   PROMPT=$'\n$(user_prompt)$(hostname_prompt)$(dirname_prompt)$(scm_prompt)\n» '
   RPROMPT="$(node_prompt)$(python_prompt)$(ruby_prompt)"
+  export PROMPT RPROMPT
 }

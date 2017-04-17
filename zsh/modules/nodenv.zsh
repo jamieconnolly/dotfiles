@@ -4,12 +4,12 @@ fi
 
 function nodenv_prompt() {
   local nodenv_version nodenv_version_file
-  nodenv_version_file="$(nodenv version-file $PWD 2>/dev/null)"
+  nodenv_version_file="$(nodenv version-file "$PWD" 2>/dev/null)"
 
   if [[ -n "$nodenv_version_file" ]]; then
-    nodenv_version="$(nodenv version-file-read $nodenv_version_file || true)"
+    nodenv_version="$(nodenv version-file-read "$nodenv_version_file" || true)"
 
-    if [[ -n "$(nodenv prefix ${nodenv_version} 2>/dev/null)" ]]; then
+    if [[ -n "$(nodenv prefix "${nodenv_version}" 2>/dev/null)" ]]; then
       nodenv_prompt="${ZSH_THEME_VERSION_PROMPT_VALID_PREFIX}${nodenv_version}${ZSH_THEME_VERSION_PROMPT_VALID_SUFFIX}"
     else
       nodenv_prompt="${ZSH_THEME_VERSION_PROMPT_INVALID_PREFIX}${nodenv_version}${ZSH_THEME_VERSION_PROMPT_INVALID_SUFFIX}"
