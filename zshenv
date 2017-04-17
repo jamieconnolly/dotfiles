@@ -17,7 +17,7 @@ GPG_TTY="$(tty)"
 export GPG_TTY
 
 # Handles
-export PROJECTS_HOME="${HOME}/Projects"
+export PROJECT_HOME="${HOME}/Projects"
 
 # History
 export HISTFILE="${HOME}/.zsh_history"
