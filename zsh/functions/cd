@@ -2,10 +2,10 @@
 # Summary: Quickly jump into a project directory
 
 if ! builtin cd "$@" &>/dev/null; then
-  if [ -s "${PROJECTS_HOME}/${GITHUB_USER}/${1}" ]; then
-    builtin cd "${PROJECTS_HOME}/${GITHUB_USER}/${1}" && return
-  elif [ -s "${PROJECTS_HOME}/${1}" ]; then
-    builtin cd "${PROJECTS_HOME}/${1}" && return
+  if [ -s "${PROJECT_HOME}/${GITHUB_USER}/${1}" ]; then
+    builtin cd "${PROJECT_HOME}/${GITHUB_USER}/${1}" && return
+  elif [ -s "${PROJECT_HOME}/${1}" ]; then
+    builtin cd "${PROJECT_HOME}/${1}" && return
   elif [ ! -d "$1" ]; then
     echo "cd: no such directory: ${1}" >&2 && return 1
   else
