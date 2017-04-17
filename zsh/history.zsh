@@ -1,3 +1,4 @@
+# shellcheck disable=SC2142
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
@@ -11,7 +12,3 @@ setopt share_history
 
 alias history="fc -l 1"
 alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
-
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000

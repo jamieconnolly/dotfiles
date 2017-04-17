@@ -6,3 +6,4 @@ autoload run-help-sudo
 autoload run-help-svn
 
 HELPDIR="$(brew --prefix)/share/zsh/help"
+export HELPDIR

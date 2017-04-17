@@ -1,24 +1,11 @@
-ZSH_FILES="$HOME/.zsh"
+# shellcheck source=/dev/null
+fpath=($ZSH/{functions,completions} $fpath)
+autoload -Uz "$ZSH"/{functions,completions}/*(:t)
 
-fpath=($ZSH_FILES/completions(/FN) $fpath)
-autoload -Uz $ZSH_FILES/completions/*(:t)
+autoload -Uz compinit && compinit -i
 
-fpath=($ZSH_FILES/functions(/FN) $fpath)
-autoload -Uz $ZSH_FILES/functions/*(:t)
-
-typeset -U config_files
-config_files=($ZSH_FILES/*.zsh $ZSH_FILES/modules/*.zsh)
-
-for config_file in ${${config_files:#*/completion.zsh}:#*/theme.zsh}; do
-  source $config_file
+config_files=($ZSH/**/*.zsh)
+for config_file in ${config_files[*]}; do
+  source "$config_file"
 done
-
-for config_file in ${(M)config_files:#*/completion.zsh}; do
-  source $config_file
-done
-
-for config_file in ${(M)config_files:#*/theme.zsh}; do
-  source $config_file
-done
-
 unset config_file{,s}

@@ -1,21 +1,36 @@
+# Browser
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER="open"
 fi
 
-if [ -n "$SSH_CONNECTION" ]; then
-  export EDITOR="vim"
-else
-  export EDITOR="atom"
-fi
-
-if [ -z "$LANG" ]; then
-  export LANG="en_GB.UTF-8"
-fi
-
-export GPG_TTY=$(tty)
+# Editor
+export EDITOR="atom"
 export PAGER="less"
-export PYTHONSTARTUP="$HOME/.pythonrc"
 export VISUAL="nano"
 
-export GITHUB_USER="$(git config github.user)"
-export PROJECTS_HOME="$HOME/Projects"
+# GitHub
+GITHUB_USER="$(git config github.user)"
+export GITHUB_USER
+
+# GPG encryption prompt
+GPG_TTY="$(tty)"
+export GPG_TTY
+
+# Handles
+export PROJECTS_HOME="${HOME}/Projects"
+
+# History
+export HISTFILE="${HOME}/.zsh_history"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+# Locale
+export LANG="en_GB.UTF-8"
+export LC_ALL="$LANG"
+export LC_CTYPE="$LANG"
+
+# Python
+export PYTHONSTARTUP="${HOME}/.pythonrc"
+
+# ZSH
+export ZSH="${HOME}/.zsh"

@@ -31,11 +31,11 @@ function git_ref_prompt() {
 
 function git_remote_status_prompt() {
   local ahead behind git_remote_status git_remote_status_prompt
-  git_remote_status=${$(command git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+  git_remote_status=${$(command git rev-parse --verify "${hook_com[branch]}@{upstream}" --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
 
   if [[ -n "$git_remote_status" ]]; then
-    ahead=$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l | tr -d ' ')
-    behind=$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l | tr -d ' ')
+    ahead=$(command git rev-list "${hook_com[branch]}@{upstream}..HEAD" 2>/dev/null | wc -l | tr -d ' ')
+    behind=$(command git rev-list "HEAD..${hook_com[branch]}@{upstream}" 2>/dev/null | wc -l | tr -d ' ')
 
     if [[ $ahead -eq 0 ]] && [[ $behind -eq 0 ]]; then
       return 0
