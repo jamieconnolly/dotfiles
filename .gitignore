@@ -11,10 +11,6 @@ bundle/*
 # pip
 pip/cache/
 
-# rbenv
-rbenv/*
-!rbenv/default-gems
-
 # ssh
 ssh/*
 !ssh/config
