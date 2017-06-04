@@ -9,7 +9,6 @@
 	changes = diff --name-status
 	churn = !"git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head"
 	cleanup = !"f() { git branch --merged=${1-master} | grep -v \"${1-master}$\" | grep -v '*' | xargs -n 1 git branch -d; }; f"
-	co-pr = !"f() { git fetch ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
 	conflicts = !"git ls-files --unmerged | awk '{print $4}' | sort -u"
 	credit = !"f() { git commit --amend --author=\"$1 <$2>\" --reuse-message=HEAD; }; f"
 	current-ref = symbolic-ref --short HEAD
@@ -26,7 +25,6 @@
 	ll = log --stat --pretty=extended --date=local
 	ls = log --pretty=extended --date=local
 	lost = !"git fsck --lost-found | awk '/dangling commit/ {print $3}' | git show --pretty=format:'SHA1: %C(auto)%h - %s%C(white) - by %cn, %cr%Creset' --stdin | awk '/SHA1/ {sub(\"SHA1: \", \"\"); print}'"
-	merge-pr = !"f() { git fetch ${2:-origin} refs/pull/$1/head:pr/$1 && git merge --no-ff pr/$1; }; f"
 	migrate = !"f() { CURRENT=$(git current-ref); git checkout -b $1 && git branch --force $CURRENT ${3-\"$CURRENT@{u}\"} && git rebase --onto=${2-master} $CURRENT; }; f"
 	ours = !"f() { git checkout --ours $@ && git add $@; }; f"
 	outgoing = log --pretty=simple --relative-date @{u}..
