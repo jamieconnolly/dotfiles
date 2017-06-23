@@ -40,7 +40,7 @@
 	undo = reset --mixed HEAD^
 	unstage = reset HEAD --
 	unstash = stash pop
-	up = !"git pull --rebase --prune $@ && git submodule update --init --recursive"
+	up = !"git pull --autostash --rebase $@ && git submodule update --init --recursive"
 	who = shortlog --numbered --summary --email --
 	whoami = config --get user.email
 	wip = commit --all --message="WIP"
