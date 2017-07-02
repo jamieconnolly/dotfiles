@@ -1,14 +1,16 @@
 #compdef cd
 
-local curcontext="$curcontext" state line ret=1 projects
+local curcontext="$curcontext" line ret=1 state
 
 _arguments -C '1: :->projects' && ret=0
 
 case $state in
   projects)
-    projects=($(find $PROJECT_HOME -depth 2 -type d | sed "s:^${PROJECT_HOME}\\(/${GITHUB_USER}\\)\{0,1\}/\{0,1\}::g"))
-    _alternative ":projects:($projects)" 'directory::_directories' && ret=0
-    ;;
+    _path_files -/ -W "${PROJECT_HOME}/${GITHUB_USER}"
+    _path_files -/ -W "$PROJECT_HOME" -F "(${GITHUB_USER})"
+    _path_files -/ .
+    ret=0
+  ;;
 esac
 
 return ret
