@@ -1,12 +1,6 @@
 [distutils]
 index-servers =
   pypi
-  pypitest
 
 [pypi]
-repository=https://pypi.python.org/pypi
-username=jamieconnolly
-
-[pypitest]
-repository=https://testpypi.python.org/pypi
-username=jamieconnolly
+username: jamieconnolly
