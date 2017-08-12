@@ -18,8 +18,6 @@ alias gc="git c"
 alias gd="git d"
 alias gp="git p"
 
-alias gpg="gpg2"
-
 alias h="handles"
 alias hb="handles bootstrap"
 alias hs="handles server"

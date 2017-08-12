@@ -104,7 +104,7 @@
 	user = jamieconnolly
 
 [gpg]
-	program = gpg2
+	program = gpg
 
 [hub]
 	http-clone = true
