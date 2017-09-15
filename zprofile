@@ -2,9 +2,9 @@ typeset -gU cdpath fpath manpath path
 
 # Set the list of directories that cd searches
 cdpath=(
-  ${cdpath[@]}
   ${PROJECT_HOME}/${GITHUB_USER}
   ${PROJECT_HOME}
+  ${cdpath[@]}
 )
 
 # Set the list of directories that zsh searches for functions
