@@ -1,12 +1,12 @@
 setopt prompt_subst
 
 function dirname_prompt() {
-  echo "${ZSH_THEME_DIRNAME_PROMPT_PREFIX}${PWD/#$HOME/~}${ZSH_THEME_DIRNAME_PROMPT_SUFFIX}"
+  echo "in ${PR_BRIGHT_CYAN}${PWD/#$HOME/~}${PR_RESET} "
 }
 
 function hostname_prompt() {
   if [[ -n "$SSH_CONNECTION" ]]; then
-    echo "${ZSH_THEME_HOSTNAME_PROMPT_PREFIX}%m${ZSH_THEME_HOSTNAME_PROMPT_SUFFIX}"
+    echo "at ${PR_BRIGHT_MAGENTA}%m${PR_RESET} "
     return 0
   else
     return 1
@@ -18,7 +18,7 @@ function scm_prompt() {
   scm_prompt="$(git_prompt || true)"
 
   if [[ -n "$scm_prompt" ]]; then
-    echo "${ZSH_THEME_SCM_PROMPT_PREFIX}${scm_prompt}${ZSH_THEME_SCM_PROMPT_SUFFIX}"
+    echo "${scm_prompt}"
     return 0
   else
     return 1
@@ -27,7 +27,7 @@ function scm_prompt() {
 
 function user_prompt() {
   if [[ $USER = "root" ]]; then
-    echo "${ZSH_THEME_USER_PROMPT_PREFIX}%n${ZSH_THEME_USER_PROMPT_SUFFIX}"
+    echo "${PR_BRIGHT_BLUE}%n${PR_RESET} "
     return 0
   else
     return 1
