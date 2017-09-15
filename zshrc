@@ -1,5 +1,5 @@
 # shellcheck source=/dev/null
-autoload -Uz "$ZSH"/{functions,completions}/*(:t)
+autoload -Uz "$ZSH"/functions/*(:t)
 
 autoload -Uz compinit && compinit -i
 
