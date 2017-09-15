@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-# Summary: A simple wrapper around git
-
-if [ $# -gt 0 ]; then
-  git "$@"
-else
-  git st
-fi

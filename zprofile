@@ -9,7 +9,7 @@ cdpath=(
 
 # Set the list of directories that zsh searches for functions
 fpath=(
-  ${ZSH}/{functions,completions}
+  ${ZSH}/functions
   ${fpath[@]}
 )
 

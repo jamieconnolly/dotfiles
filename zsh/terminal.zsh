@@ -5,6 +5,7 @@ if [ "$TERM_PROGRAM" = "Apple_Terminal" ] && [ -z "$INSIDE_EMACS" ]; then
   function update_terminal_cwd() {
     printf "\e]7;%s\a" "file://${HOST}${PWD// /%20}"
   }
+
   add-zsh-hook chpwd update_terminal_cwd
   update_terminal_cwd
 fi
