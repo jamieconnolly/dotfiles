@@ -8,6 +8,9 @@ export EDITOR="atom"
 export PAGER="less"
 export VISUAL="nano"
 
+# Go
+export GOPATH="${HOME}/.go"
+
 # GPG encryption prompt
 GPG_TTY="$(tty)"
 export GPG_TTY
