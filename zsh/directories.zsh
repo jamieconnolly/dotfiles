@@ -22,9 +22,11 @@ alias rm="rm -iv"
 
 alias df="df -kH"
 alias du="du -ksh"
-alias l="ls -lah"
-alias la="ls -lAh"
-alias ll="ls -lh"
+
+alias l="ls -Flah"
+alias la="ls -FlAh"
+alias ll="ls -Flh"
+alias ls="ls -F"
 
 alias po="popd"
 alias pu="pushd"
