@@ -100,9 +100,6 @@
 [help]
 	autocorrect = 1
 
-[github]
-	user = jamieconnolly
-
 [gpg]
 	program = gpg
 

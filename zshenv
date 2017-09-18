@@ -8,15 +8,12 @@ export EDITOR="atom"
 export PAGER="less"
 export VISUAL="nano"
 
-# GitHub
-GITHUB_USER="$(git config github.user)"
-export GITHUB_USER
-
 # GPG encryption prompt
 GPG_TTY="$(tty)"
 export GPG_TTY
 
 # Handles
+export GITHUB_USER="jamieconnolly"
 export PROJECT_HOME="${HOME}/Projects"
 
 # History
