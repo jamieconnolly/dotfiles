@@ -1,5 +1,4 @@
 # shellcheck source=/dev/null
-autoload -Uz compinit && compinit -i
 autoload -Uz "$ZSH"/functions/*(:t)
 
 config_files=($ZSH/**/*.zsh)
