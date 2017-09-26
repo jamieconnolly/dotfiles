@@ -1,8 +1,10 @@
 Host *
+  AddKeysToAgent yes
   ControlMaster auto
   ControlPath /tmp/ssh-%r@%h:%p.sock
   ForwardAgent yes
   NoHostAuthenticationForLocalhost yes
   StrictHostKeyChecking ask
+  UseKeychain yes
   UseRoaming no
   VerifyHostKeyDNS ask
