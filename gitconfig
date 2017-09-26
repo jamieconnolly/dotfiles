@@ -97,11 +97,14 @@
 	smudge = git-lfs smudge %f
 	required = true
 
-[help]
-	autocorrect = 1
+[github]
+	user = jamieconnolly
 
 [gpg]
 	program = gpg
+
+[help]
+	autocorrect = 1
 
 [hub]
 	http-clone = true

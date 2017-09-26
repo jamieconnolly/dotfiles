@@ -16,7 +16,6 @@ GPG_TTY="$(tty)"
 export GPG_TTY
 
 # Handles
-export GITHUB_USER="jamieconnolly"
 export PROJECT_HOME="${HOME}/Projects"
 
 # History

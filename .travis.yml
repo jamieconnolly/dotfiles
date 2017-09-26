@@ -11,7 +11,7 @@ install:
 
 before_script:
   - shellcheck -f gcc script/*
-  - shellcheck -f gcc -e SC2148 zsh/**/*.zsh zshenv zprofile zshrc
+  - shellcheck -f gcc -e SC2148 zsh/**/*.zsh zprofile zshenv zshrc
 
 script:
   - script/setup

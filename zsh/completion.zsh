@@ -22,4 +22,4 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 # prevent my personal projects directory from being completed
-zstyle ':completion:*:path-directories' ignored-patterns "$GITHUB_USER"
+zstyle ':completion:*:path-directories' ignored-patterns "$(git config github.user)"
