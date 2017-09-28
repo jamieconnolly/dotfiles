@@ -2,12 +2,6 @@ language: generic
 os: osx
 osx_image: xcode8.2
 
-before_install:
-  - brew update
-
-install:
-  - brew install zsh
-
 script:
   - script/setup
   - export PS1
