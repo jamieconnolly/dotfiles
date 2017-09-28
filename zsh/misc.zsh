@@ -4,6 +4,7 @@ setopt no_case_glob
 
 # Input/Output
 setopt ignore_eof
+setopt interactive_comments
 
 # Job Control
 setopt long_list_jobs
