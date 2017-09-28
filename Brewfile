@@ -10,7 +10,6 @@ brew "hub"
 brew "mas"
 brew "node"
 brew "readline"
-brew "shellcheck"
 brew "zsh"
 
 cask "1password"

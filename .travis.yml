@@ -4,13 +4,9 @@ osx_image: xcode8.2
 
 before_install:
   - brew update
-  - brew install shellcheck
 
 install:
   - brew install zsh
-
-before_script:
-  - shellcheck -f gcc script/*
 
 script:
   - script/setup
