@@ -7,9 +7,9 @@ cd "$(git rev-parse --show-toplevel)"
 
 DOTFILES_ROOT="$(pwd -P)"
 
-# Install dotfiles
+# Symlink dotfiles into the home directory
 
-echo "==> Installing dotfiles…"
+echo "==> Symlinking dotfiles into the home directory…"
 for DOTFILE in ${DOTFILES_ROOT}/*; do
   [[ "$DOTFILE" == **/script ]] && continue
   [[ "$DOTFILE" == **/*.md ]] && continue
@@ -30,27 +30,11 @@ done
 
 echo "==> Installing Homebrew dependencies…"
 if [ -z "$TRAVIS" ]; then
-  brew bundle check &>/dev/null || {
+  brew bundle check --global &>/dev/null || {
     brew bundle --global
   }
 else
   echo "Skipping Homebrew dependencies for CI"
-fi
-
-# Change the login shell to ZSH
-
-if command -v zsh >/dev/null 2>&1; then
-  ZSH_PATH=$(command -v zsh)
-
-  if ! grep "$ZSH_PATH" /etc/shells >/dev/null 2>&1; then
-    echo "==> Adding $ZSH_PATH to /etc/shells…"
-    echo "$ZSH_PATH" | sudo -n tee -a /etc/shells >/dev/null
-  fi
-
-  if [ "$(dscl . -read "$HOME" UserShell 2>/dev/null | cut -d" " -f2)" != "$ZSH_PATH" ]; then
-    echo "==> Changing the login shell to ZSH…"
-    sudo -n chsh -s "$ZSH_PATH" "$(whoami)"
-  fi
 fi
 
 # Install Atom packages
@@ -66,4 +50,20 @@ if command -v apm >/dev/null 2>&1; then
       apm install "$pkg_name"
     fi
   done < "${DOTFILES_ROOT}/atom/default-packages"
+fi
+
+# Change the login shell to zsh
+
+if command -v zsh >/dev/null 2>&1; then
+  ZSH_PATH=$(command -v zsh)
+
+  if [ "$(dscl . -read "$HOME" UserShell 2>/dev/null | cut -d" " -f2)" != "$ZSH_PATH" ]; then
+    echo "==> Changing the login shell to zsh…"
+
+    if ! grep "$ZSH_PATH" /etc/shells >/dev/null 2>&1; then
+      echo "$ZSH_PATH" | sudo tee -a /etc/shells >/dev/null
+    fi
+
+    sudo chsh -s "$ZSH_PATH" "$(whoami)"
+  fi
 fi
