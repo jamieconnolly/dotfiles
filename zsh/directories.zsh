@@ -22,9 +22,10 @@ alias rm="rm -iv"
 alias df="df -kH"
 alias du="du -ksh"
 
-alias l="ls -Flah"
-alias la="ls -FlAh"
-alias ll="ls -Flh"
+alias fd="find . -type d -name"
+alias ff="find . -type f -name"
+
+alias l="ls -Flh"
 alias ls="ls -F"
 
 alias po="popd"

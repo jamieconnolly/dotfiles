@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-# Summary: Open the specified directory in your editor
-
-$EDITOR "${1:-.}"
