@@ -14,6 +14,7 @@ brew "zsh"
 
 cask "1password"
 cask "atom"
+cask "github-desktop"
 cask "polymail"
 cask "the-unarchiver"
 
