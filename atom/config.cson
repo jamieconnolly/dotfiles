@@ -2,6 +2,7 @@
   autosave:
     enabled: true
   core:
+    closeDeletedFileTabs: true
     customFileTypes:
       "source.dotenv": [
         ".env.example"
@@ -9,8 +10,8 @@
       "source.nginx": [
         "nginx.conf.erb"
       ]
-      "source.shell": [
-        "bats"
+      "source.toml": [
+        "Pipfile"
       ]
     disabledPackages: [
       "background-tips"
@@ -19,18 +20,22 @@
       "whitespace"
     ]
     telemetryConsent: "no"
+    titleBar: "custom-inset"
   editor:
-    fontFamily: "InputMonoNarrow-Regular"
+    fontFamily: "SF Mono"
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
   "file-icons":
     coloured: false
-  linter:
-    showErrorPanel: false
-    showErrorTabFile: false
-    showErrorTabProject: false
-    statusIconScope: "File"
+  "linter-eslint":
+    fixOnSave: true
+  "linter-shellcheck":
+    enableNotice: true
+    userParameters: "-x"
+  "linter-ui-default":
+    decorateOnTreeView: "None"
+    statusBarRepresents: "Current File"
   "markdown-preview":
     useGitHubStyle: true
   minimap:
@@ -42,7 +47,6 @@
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
   tabs:
-    alwaysShowTabBar: false
     enableVcsColoring: true
   "tree-view":
     autoReveal: true

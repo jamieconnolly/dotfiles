@@ -1,6 +1,8 @@
 editorconfig
 file-icons
+import-sf-mono
 language-dotenv
+language-graphql
 language-ini
 language-nginx
 linter
