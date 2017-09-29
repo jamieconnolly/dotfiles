@@ -1,27 +1,43 @@
 #!/bin/bash
 # Usage: script/setup
-# Summary: Install the dotfiles into the home directory
+# Summary: Set up the dotfiles
 
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
 DOTFILES_ROOT="$(pwd -P)"
 
-# Symlink dotfiles into the home directory
+# Link dotfiles into the home directory
 
-echo "==> Symlinking dotfiles into the home directory…"
-for DOTFILE in ${DOTFILES_ROOT}/*; do
-  [[ "$DOTFILE" == **/script ]] && continue
-  [[ "$DOTFILE" == **/*.md ]] && continue
-  [[ "$DOTFILE" == **/*.txt ]] && continue
+echo "==> Linking dotfiles into the home directory…"
+for SRC_PATH in ${DOTFILES_ROOT}/*; do
+  [[ "$SRC_PATH" == **/Library ]] && continue
+  [[ "$SRC_PATH" == **/script ]] && continue
+  [[ "$SRC_PATH" == **/*.md ]] && continue
+  [[ "$SRC_PATH" == **/*.txt ]] && continue
 
-  HOMEFILE="${HOME}/.${DOTFILE##*/}"
-  if [[ ! -e "$HOMEFILE" ]] || [[ "$(readlink "$HOMEFILE")" != "$DOTFILE" ]]; then
-    if [[ -L "$HOMEFILE" ]] && [[ ! -d "$DOTFILE" ]]; then
-      ln -sfv "$DOTFILE" "$HOMEFILE"
+  DEST_PATH="${HOME}/.${SRC_PATH##${DOTFILES_ROOT}/}"
+  if [[ ! -e "$DEST_PATH" ]] || [[ "$(readlink "$DEST_PATH")" != "$SRC_PATH" ]]; then
+    if [[ -L "$DEST_PATH" ]] && [[ ! -d "$SRC_PATH" ]]; then
+      ln -sfv "$SRC_PATH" "$DEST_PATH"
     else
-      rm -rf "$HOMEFILE"
-      ln -sv "$DOTFILE" "$HOMEFILE"
+      rm -rf "$DEST_PATH"
+      ln -sv "$SRC_PATH" "$DEST_PATH"
+    fi
+  fi
+done
+
+# Link config files into the user library
+
+echo "==> Linking config files into the user library…"
+for SRC_PATH in ${DOTFILES_ROOT}/Library/**/*; do
+  DEST_PATH="${HOME}/${SRC_PATH##${DOTFILES_ROOT}/}"
+  if [[ ! -e "$DEST_PATH" ]] || [[ "$(readlink "$DEST_PATH")" != "$SRC_PATH" ]]; then
+    if [[ -L "$DEST_PATH" ]] && [[ ! -d "$SRC_PATH" ]]; then
+      ln -sfv "$SRC_PATH" "$DEST_PATH"
+    else
+      rm -rf "$DEST_PATH"
+      ln -sv "$SRC_PATH" "$DEST_PATH"
     fi
   fi
 done
