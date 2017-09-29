@@ -19,4 +19,3 @@ cask "the-unarchiver"
 
 mas "Pocket", id: 568494494
 mas "Reeder", id: 880001334
-mas "Xcode", id: 497799835
