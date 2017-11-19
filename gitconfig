@@ -28,6 +28,7 @@
 	migrate = !"f() { CURRENT=$(git current-ref); git checkout -b $1 && git branch --force $CURRENT ${3-\"$CURRENT@{u}\"} && git rebase --onto=${2-master} $CURRENT; }; f"
 	ours = !"f() { git checkout --ours $@ && git add $@; }; f"
 	outgoing = log --pretty=simple --relative-date @{u}..
+	praise = blame
 	publish = !"f() { git push --set-upstream ${1-origin} $(git current-ref); }; f"
 	ready = rebase --interactive @{u}
 	review = diff master --unified=20 --ignore-space-change
