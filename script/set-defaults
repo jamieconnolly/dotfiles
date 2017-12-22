@@ -1,0 +1,49 @@
+#!/bin/bash
+# Usage: script/set-defaults
+# Summary: Set reasonable macOS defaults
+
+set -e
+cd "$(git rev-parse --show-toplevel)"
+
+# Finder: Don't show hard drives on the desktop
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+
+# Finder: Don't write .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Finder: Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Finder: Open new windows on the user's home directory
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+# Finder: Search within current directory
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Finder: Set column view as the default
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+# Finder: Show hard disks in sidebar
+defaults write com.apple.sidebarlists ShowHardDisks -bool true
+
+# Safari: Ask websites not to track me
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+# Safari: Disable AutoFill
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+defaults write com.apple.Safari AutoFillPasswords -bool false
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+
+# Safari: Disable Java
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false
+
+# Safari: Show Develop menu in the menu bar
+defaults write com.apple.safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+defaults write com.apple.safari IncludeDevelopMenu -bool true
+defaults write com.apple.safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+
+# Safari: Start with all windows from last session
+defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
