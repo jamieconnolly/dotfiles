@@ -15,6 +15,7 @@ brew "zsh"
 cask "1password"
 cask "atom"
 cask "polymail"
+cask "slack"
 cask "the-unarchiver"
 
 mas "Pocket", id: 568494494
