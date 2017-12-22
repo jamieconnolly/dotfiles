@@ -13,3 +13,4 @@ minimap
 minimap-find-and-replace
 minimap-git-diff
 minimap-highlight-selected
+teletype
