@@ -11,6 +11,7 @@ alias psa="ps aux"
 alias psg="ps aux | grep "
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '==> Public key copied to pasteboard…'"
 alias reload!=". ~/.zshrc"
+alias secret="openssl rand -base64 48 | sed -e 's/[\/&]/\\&/g'"
 alias sha256="shasum -a 256"
 
 alias g="git"
