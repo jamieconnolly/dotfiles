@@ -14,9 +14,12 @@ brew "zsh"
 
 cask "1password"
 cask "atom"
-cask "polymail"
+cask "firefox"
+cask "google-chrome"
 cask "slack"
 cask "the-unarchiver"
 
 mas "Pocket", id: 568494494
 mas "Reeder", id: 880001334
+mas "Things 3", id: 904280696
+mas "Tweetbot", id: 557168941
