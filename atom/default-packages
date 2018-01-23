@@ -1,6 +1,7 @@
 editorconfig
 file-icons
 import-sf-mono
+language-docker
 language-dotenv
 language-graphql
 language-ini
