@@ -5,7 +5,7 @@
     closeDeletedFileTabs: true
     customFileTypes:
       "source.dotenv": [
-        ".env.example"
+        ".env.dist"
       ]
       "source.nginx": [
         "nginx.conf.erb"
