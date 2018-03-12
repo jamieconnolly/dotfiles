@@ -33,6 +33,7 @@ echo "==> Linking config files into the user library…"
 for SRC_PATH in ${DOTFILES_ROOT}/Library/**/*; do
   DEST_PATH="${HOME}/${SRC_PATH##${DOTFILES_ROOT}/}"
   if [[ ! -e "$DEST_PATH" ]] || [[ "$(readlink "$DEST_PATH")" != "$SRC_PATH" ]]; then
+    mkdir -p "${DEST_PATH%/*}"
     if [[ -L "$DEST_PATH" ]] && [[ ! -d "$SRC_PATH" ]]; then
       ln -sfv "$SRC_PATH" "$DEST_PATH"
     else
