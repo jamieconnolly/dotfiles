@@ -9,6 +9,7 @@ brew "handles"
 brew "hub"
 brew "mas"
 brew "node"
+brew "php"
 brew "readline"
 brew "zsh"
 
