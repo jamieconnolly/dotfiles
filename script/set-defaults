@@ -5,12 +5,37 @@
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
-# Finder: Don't show hard drives on the desktop
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+# Dock: Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.Dock autohide-delay -float 0
+
+# Dock: Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Dock: Don't show indicators for open applications
+defaults write com.apple.dock show-process-indicators -bool false
+
+# Dock: Minimize windows into application icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Dock: Show only active applications
+defaults write com.apple.dock static-only -bool true
+
+# Dock: Move the dock to the left
+defaults write com.apple.dock orientation -string "left"
+
+# Dock: Make the dock icons a bit smaller
+defaults write com.apple.dock tilesize -int 36
+
+# Finder: Don't show icons on the desktop
+defaults write com.apple.finder CreateDesktop -bool false
 
 # Finder: Don't write .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Finder: Minimize window when double clicking title bar
+defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool true
 
 # Finder: Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
@@ -31,10 +56,10 @@ defaults write com.apple.sidebarlists ShowHardDisks -bool true
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 # Safari: Disable AutoFill
-defaults write com.apple.Safari AutoFillFromAddressBook -bool false
-defaults write com.apple.Safari AutoFillPasswords -bool false
 defaults write com.apple.Safari AutoFillCreditCardData -bool false
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
 defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+defaults write com.apple.Safari AutoFillPasswords -bool false
 
 # Safari: Disable Java
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
