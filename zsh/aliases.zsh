@@ -1,7 +1,7 @@
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias cls="clear"
 alias count="wc -l"
-alias flush="dscacheutil -flushcache"
+alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 alias grep="grep --exclude-dir={.bzr,CVS,.git,.hg,.svn}"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
