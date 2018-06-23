@@ -10,6 +10,7 @@ brew "hub"
 brew "mas"
 brew "node"
 brew "php"
+brew "python"
 brew "readline"
 brew "zsh"
 
@@ -20,7 +21,7 @@ cask "google-chrome"
 cask "slack"
 cask "the-unarchiver"
 
+mas "Bear", id: 1091189122
 mas "Pocket", id: 568494494
 mas "Reeder", id: 880001334
 mas "Things 3", id: 904280696
-mas "Tweetbot", id: 557168941
