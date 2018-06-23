@@ -30,6 +30,8 @@
     coloured: false
   "linter-eslint":
     fixOnSave: true
+  "linter-phpcs":
+    disableWhenNoConfigFile: true
   "linter-shellcheck":
     enableNotice: true
     userParameters: "-x"

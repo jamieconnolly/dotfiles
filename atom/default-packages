@@ -3,11 +3,14 @@ file-icons
 import-sf-mono
 language-docker
 language-dotenv
+language-dotfiles
+language-gherkin
 language-graphql
 language-ini
 language-nginx
 linter
 linter-eslint
+linter-phpcs
 linter-shellcheck
 linter-stylelint
 minimap
