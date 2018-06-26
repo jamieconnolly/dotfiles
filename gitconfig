@@ -111,10 +111,6 @@
 [help]
 	autocorrect = 1
 
-[hub]
-	http-clone = true
-	protocol = https
-
 [include]
 	path = .gitconfig-personal
 
