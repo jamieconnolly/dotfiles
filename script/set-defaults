@@ -18,6 +18,9 @@ defaults write com.apple.dock show-process-indicators -bool false
 # Dock: Minimize windows into application icon
 defaults write com.apple.dock minimize-to-application -bool true
 
+# Dock: Group windows by application
+defaults write com.apple.dock expose-group-apps -bool true
+
 # Dock: Show only active applications
 defaults write com.apple.dock static-only -bool true
 
@@ -25,7 +28,7 @@ defaults write com.apple.dock static-only -bool true
 defaults write com.apple.dock orientation -string "left"
 
 # Dock: Make the dock icons a bit smaller
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 48
 
 # Finder: Don't show icons on the desktop
 defaults write com.apple.finder CreateDesktop -bool false
@@ -72,3 +75,6 @@ defaults write com.apple.safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 
 # Safari: Start with all windows from last session
 defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
+
+# Wi-Fi: Enable Private Cloudflare DNS servers (1.1.1.1)
+networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
