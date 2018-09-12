@@ -8,7 +8,6 @@
 	changelog = !"git log --pretty=simple --relative-date $(git last-tag)..HEAD"
 	changes = diff --name-status
 	churn = !"git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head"
-	cleanup = !"f() { git branch --merged=${1-master} | grep -v \"${1-master}$\" | grep -v '*' | xargs -n 1 git branch -d; }; f"
 	conflicts = !"git ls-files --unmerged | awk '{print $4}' | sort -u"
 	credit = !"f() { git commit --amend --author=\"$1 <$2>\" --reuse-message=HEAD; }; f"
 	current-ref = symbolic-ref --short HEAD
@@ -115,7 +114,7 @@
 	path = .gitconfig-personal
 
 [includeIf "gitdir:~/Projects/tailify/**"]
-	path = .gitconfig-work
+	path = .gitconfig-tailify
 
 [pretty]
 	extended = format:"%C(auto)%h%d - %s%C(white) - by %cn, %cd%Creset"
