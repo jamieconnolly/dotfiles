@@ -12,6 +12,7 @@ brew "node"
 brew "php"
 brew "python"
 brew "readline"
+brew "travis"
 brew "zsh"
 
 cask "1password"
