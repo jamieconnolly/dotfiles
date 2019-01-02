@@ -107,11 +107,11 @@
 [gpg]
 	program = gpg
 
+[handles]
+	emoji = true
+
 [help]
 	autocorrect = 1
-
-[include]
-	path = .gitconfig-personal
 
 [includeIf "gitdir:~/Projects/tailify/**"]
 	path = .gitconfig-tailify
@@ -130,3 +130,8 @@
 [url "git@github.com:"]
 	pushInsteadOf = git://github.com/
 	pushInsteadOf = https://github.com/
+
+[user]
+	name = Jamie Connolly
+	email = jamie@jamieconnolly.com
+	signingkey = 9CEBDE66
