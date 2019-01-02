@@ -107,14 +107,8 @@
 [gpg]
 	program = gpg
 
-[handles]
-	emoji = true
-
 [help]
 	autocorrect = 1
-
-[includeIf "gitdir:~/Projects/tailify/**"]
-	path = .gitconfig-tailify
 
 [pretty]
 	extended = format:"%C(auto)%h%d - %s%C(white) - by %cn, %cd%Creset"
@@ -122,6 +116,9 @@
 
 [push]
 	default = simple
+
+[release]
+	emoji = true
 
 [url "git@bitbucket.org:"]
 	pushInsteadOf = git://bitbucket.org/
@@ -135,3 +132,6 @@
 	name = Jamie Connolly
 	email = jamie@jamieconnolly.com
 	signingkey = 9CEBDE66
+
+[includeIf "gitdir:~/Projects/tailify/**"]
+	path = .gitconfig-tailify
