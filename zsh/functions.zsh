@@ -1,8 +1,3 @@
-# Open the specified directory in your editor
-function e() {
-  $EDITOR "${1:-.}"
-}
-
 # Calculate the checksum of the specified version
 function checksum() {
   version="${1:-$(git describe --tags --abbrev=0 --match='v[0-9]*' 2>/dev/null || true)}"
@@ -24,4 +19,9 @@ function checksum() {
   fi
 
   echo "Checksum for ${version} is ${checksum}"
+}
+
+# Open the specified directory in your editor
+function e() {
+  $EDITOR "${1:-.}"
 }

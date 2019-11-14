@@ -1,39 +1,16 @@
-setopt prompt_subst
+if [ "$TERM_PROGRAM" = "Apple_Terminal" ] && [ -z "$INSIDE_EMACS" ]; then
+  autoload -Uz add-zsh-hook
 
-function dirname_prompt() {
-  echo "in ${PR_BRIGHT_CYAN}${PWD/#$HOME/~}${PR_RESET} "
-}
+  # Set Apple Terminal current working directory
+  function update_terminal_cwd() {
+    # Undocumented Terminal.app-specific control sequence
+    printf "\e]7;%s\a" "file://${HOST}${PWD// /%20}"
+  }
 
-function hostname_prompt() {
-  if [[ -n "$SSH_CONNECTION" ]]; then
-    echo "at ${PR_BRIGHT_MAGENTA}%m${PR_RESET} "
-    return 0
-  else
-    return 1
-  fi
-}
-
-function scm_prompt() {
-  local scm_prompt
-  scm_prompt="$(git_prompt || true)"
-
-  if [[ -n "$scm_prompt" ]]; then
-    echo "${scm_prompt}"
-    return 0
-  else
-    return 1
-  fi
-}
-
-function user_prompt() {
-  if [[ $USER = "root" ]]; then
-    echo "${PR_BRIGHT_BLUE}%n${PR_RESET} "
-    return 0
-  else
-    return 1
-  fi
-}
+  add-zsh-hook chpwd update_terminal_cwd
+  update_terminal_cwd
+fi
 
 function precmd() {
-  export PROMPT=$'\n$(user_prompt)$(hostname_prompt)$(dirname_prompt)$(scm_prompt)\n» '
+  export PROMPT=$'\n$(user_prompt)$(dir_prompt)$(host_prompt)$(scm_prompt)\n» '
 }

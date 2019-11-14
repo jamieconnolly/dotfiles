@@ -1,6 +1,6 @@
 # Browser
 if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER="open"  # firefox
+  export BROWSER="open"
 fi
 
 # Editor
@@ -9,6 +9,9 @@ export VISUAL=$EDITOR
 
 # Go
 export GOPATH="${HOME}/.go"
+
+# GPG
+export GPG_TTY="$(tty)"
 
 # Handles
 export PROJECT_HOME="${HOME}/Projects"
@@ -26,4 +29,4 @@ export PIPENV_VENV_IN_PROJECT=true
 export PYTHONSTARTUP="${HOME}/.pythonrc"
 
 # ZSH
-export ZSH="${HOME}/.zsh"
+export ZSH_HOME="${HOME}/.zsh"
