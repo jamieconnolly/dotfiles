@@ -111,8 +111,8 @@
 	autocorrect = 1
 
 [pretty]
-	extended = format:"%C(auto)%h%d - %s%C(white) - by %cn, %cd%Creset"
-	simple = format:"%C(auto)%h - %s%C(white) - by %cn, %cr%Creset"
+	extended = format:"%C(auto)%h%d - %s%C(dim) - %cd%Creset"
+	simple = format:"%C(auto)%h - %s%C(dim) - %cr%Creset"
 
 [push]
 	default = simple
