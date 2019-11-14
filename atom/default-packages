@@ -1,6 +1,6 @@
 editorconfig
 file-icons
-import-sf-mono
+import-sf-mono-catalina
 language-docker
 language-dotenv
 language-dotfiles
@@ -8,6 +8,7 @@ language-gherkin
 language-graphql
 language-ini
 language-nginx
+language-terraform
 linter
 linter-eslint
 linter-phpcs
