@@ -1,5 +1,7 @@
 autoload -Uz compinit && compinit -i
 
+export WORDCHARS=""
+
 setopt always_to_end
 setopt auto_menu
 setopt auto_name_dirs
