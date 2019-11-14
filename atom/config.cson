@@ -16,6 +16,7 @@
     disabledPackages: [
       "background-tips"
       "exception-reporting"
+      "linter-shellcheck"
       "metrics"
       "whitespace"
     ]
@@ -29,7 +30,8 @@
   "file-icons":
     coloured: false
   "linter-eslint":
-    fixOnSave: true
+    autofix:
+      fixOnSave: true
   "linter-phpcs":
     disableWhenNoConfigFile: true
   "linter-shellcheck":
@@ -37,6 +39,7 @@
     userParameters: "-x"
   "linter-ui-default":
     decorateOnTreeView: "None"
+    showPanel: true
     statusBarRepresents: "Current File"
   "markdown-preview":
     useGitHubStyle: true
@@ -48,6 +51,8 @@
       "git-diffDecorationsZIndex": 0
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
+  "one-dark-ui":
+    tabCloseButton: "Left"
   tabs:
     enableVcsColoring: true
   "tree-view":
