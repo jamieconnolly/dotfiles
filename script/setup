@@ -7,7 +7,7 @@ cd "$(git rev-parse --show-toplevel)"
 
 DOTFILES_ROOT="$(pwd -P)"
 
-for SRC_PATH in $DOTFILES_ROOT/*; do
+for SRC_PATH in ${DOTFILES_ROOT}/*; do
   [[ "$SRC_PATH" == **/Library ]] && continue
   [[ "$SRC_PATH" == **/script ]] && continue
   [[ "$SRC_PATH" == **/*.md ]] && continue
