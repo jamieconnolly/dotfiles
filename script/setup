@@ -7,7 +7,7 @@ cd "$(git rev-parse --show-toplevel)"
 
 DOTFILES_ROOT="$(pwd -P)"
 
-for SRC_PATH in ${DOTFILES_ROOT}/*; do
+for SRC_PATH in $DOTFILES_ROOT/*; do
   [[ "$SRC_PATH" == **/Library ]] && continue
   [[ "$SRC_PATH" == **/script ]] && continue
   [[ "$SRC_PATH" == **/*.md ]] && continue
@@ -18,7 +18,7 @@ for SRC_PATH in ${DOTFILES_ROOT}/*; do
     if [[ -L "$DEST_PATH" ]] && [[ ! -d "$SRC_PATH" ]]; then
       ln -sfv "$SRC_PATH" "$DEST_PATH"
     else
-      rm -rv "$DEST_PATH"
+      rm -rfv "$DEST_PATH"
       ln -sv "$SRC_PATH" "$DEST_PATH"
     fi
   fi
@@ -31,7 +31,7 @@ for SRC_PATH in ${DOTFILES_ROOT}/Library/**/*; do
     if [[ -L "$DEST_PATH" ]] && [[ ! -d "$SRC_PATH" ]]; then
       ln -sfv "$SRC_PATH" "$DEST_PATH"
     else
-      rm -rv "$DEST_PATH"
+      rm -rfv "$DEST_PATH"
       ln -sv "$SRC_PATH" "$DEST_PATH"
     fi
   fi
