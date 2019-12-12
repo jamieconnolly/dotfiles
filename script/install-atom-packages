@@ -1,0 +1,24 @@
+#!/bin/bash
+# Usage: script/install-atom-packages
+# Summary: Install all Atom packages
+
+set -e
+cd "$(git rev-parse --show-toplevel)"
+
+echo "==> Installing Atom packages…"
+if ! command -v apm >/dev/null 2>&1; then
+  echo "!!! Error: Atom is not installed" >&2
+  exit 1
+fi
+
+DOTFILES_ROOT="$(pwd -P)"
+
+while IFS=" " read -r -a line; do
+  [ "${#line[@]}" -gt 0 ] || continue
+  [ "${line[0]:0:1}" != "#" ] || continue
+
+  PACKAGE="${line[0]}"
+  if [ ! -d "${HOME}/.atom/packages/${PACKAGE}" ]; then
+    apm install "$PACKAGE"
+  fi
+done < "${DOTFILES_ROOT}/atom/default-packages"
