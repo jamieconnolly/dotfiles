@@ -25,7 +25,7 @@ alias du="du -ksh"
 alias fd="find . -type d -name"
 alias ff="find . -type f -name"
 
-alias l="ls -Flh"
+alias l="ls -lah"
 alias ls="ls -F"
 
 alias po="popd"

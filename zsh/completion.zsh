@@ -1,6 +1,6 @@
-autoload -Uz compinit && compinit -i
+autoload -Uz compinit && compinit -i -C
 
-export WORDCHARS=""
+WORDCHARS=""
 
 setopt always_to_end
 setopt auto_menu

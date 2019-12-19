@@ -13,7 +13,6 @@ alias reload!=". ~/.zshrc"
 alias secret="openssl rand -base64 48 | sed -e 's/[\/&]/\\&/g'"
 alias sha256="shasum -a 256"
 
-alias fixsound!="ps ax | grep 'coreaudio[a-z]' | awk '{print \$1}' | xargs sudo kill -9"
 alias flushdns!="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper"
 
 alias g="git"
