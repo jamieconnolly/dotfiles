@@ -11,9 +11,6 @@ setopt long_list_jobs
 setopt no_bg_nice
 setopt no_hup
 
-# Prompting
-setopt prompt_subst
-
 # Scripts and Functions
 setopt local_options
 setopt local_traps
