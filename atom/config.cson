@@ -4,19 +4,12 @@
   core:
     closeDeletedFileTabs: true
     customFileTypes:
-      "source.dotenv": [
-        ".env.dist"
-      ]
-      "source.nginx": [
-        "nginx.conf.erb"
-      ]
       "source.toml": [
         "Pipfile"
       ]
     disabledPackages: [
       "background-tips"
       "exception-reporting"
-      "linter-shellcheck"
       "metrics"
       "whitespace"
     ]
@@ -29,17 +22,20 @@
     softWrap: true
   "file-icons":
     coloured: false
+  "language-dotenv":
+    dotenvFileNames: [
+      ".env"
+      ".env.dist"
+    ]
   "linter-eslint":
     autofix:
       fixOnSave: true
-  "linter-phpcs":
-    disableWhenNoConfigFile: true
   "linter-shellcheck":
     enableNotice: true
     userParameters: "-x"
   "linter-ui-default":
+    alwaysTakeMinimumSpace: true
     decorateOnTreeView: "None"
-    showPanel: true
     statusBarRepresents: "Current File"
   "markdown-preview":
     useGitHubStyle: true
@@ -56,6 +52,7 @@
   tabs:
     enableVcsColoring: true
   "tree-view":
+    alwaysOpenExisting: true
     autoReveal: true
     focusOnReveal: false
     hideIgnoredNames: true
