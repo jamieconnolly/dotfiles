@@ -110,6 +110,9 @@
 [help]
 	autocorrect = 1
 
+[init]
+	defaultBranch = main
+
 [pretty]
 	extended = format:"%C(auto)%h%d - %s%C(dim) - %cd%Creset"
 	simple = format:"%C(auto)%h - %s%C(dim) - %cr%Creset"
@@ -133,5 +136,5 @@
 	email = jamie@jamieconnolly.com
 	signingkey = 9CEBDE66
 
-[includeIf "gitdir:~/Projects/tailify/**"]
-	path = .gitconfig-tailify
+[includeIf "gitdir:~/Projects/theiwsr/**"]
+	path = .gitconfig-theiwsr
