@@ -9,7 +9,7 @@ bundle/*
 !bundle/config
 
 # pip
-pip/cache/
+pip/cache/*
 
 # ssh
 ssh/*

@@ -4,11 +4,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 # Editor
-export EDITOR="atom"
+export EDITOR="code"
 export VISUAL=$EDITOR
-
-# Go
-export GOPATH="${HOME}/.go"
 
 # GPG
 export GPG_TTY="$(tty)"
