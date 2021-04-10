@@ -9,11 +9,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 # Editor
-if [[ "$OSTYPE" == darwin* ]]; then
-  export EDITOR="code"
-else
-  export EDITOR="vim"
-fi
+export EDITOR="code"
 
 # GPG
 export GPG_TTY="$(tty)"

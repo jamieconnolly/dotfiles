@@ -80,7 +80,7 @@
 	gpgsign = true
 
 [core]
-	editor = vim
+	editor = vi
 	excludesfile = ~/.gitignore_global
 	mergeoptions = --no-edit
 	pager = "less --tabs=1,5 -FRX"
@@ -130,8 +130,5 @@
 
 [user]
 	name = Jamie Connolly
-	email = jamie@jamieconnolly.com
 	signingkey = 9CEBDE66
-
-[includeIf "gitdir:~/Code/theiwsr/"]
-	path = .gitconfig-theiwsr
+  useConfigOnly = true
