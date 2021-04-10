@@ -2,7 +2,7 @@ typeset -gU cdpath
 
 # Set the list of directories that cd searches
 cdpath=(
-  ${PROJECT_HOME}/$(git config github.user)
-  ${PROJECT_HOME}
+  ${CODE_HOME}/$(git config github.user)
+  ${CODE_HOME}
   ${cdpath[@]}
 )

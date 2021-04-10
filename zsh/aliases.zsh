@@ -13,16 +13,13 @@ alias reload!=". ~/.zshrc"
 alias secret="openssl rand -base64 48 | sed -e 's/[\/&]/\\&/g'"
 alias sha256="shasum -a 256"
 
-alias flushdns!="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper"
-
 alias g="git"
 alias ga="git a"
 alias gc="git c"
 alias gd="git d"
 alias gp="git p"
 
-alias h="handles"
-alias hb="handles bootstrap"
-alias hs="handles server"
-alias ht="handles test"
-alias hu="handles update"
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias flushdns!="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper"
+  alias h="handles"
+fi

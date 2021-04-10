@@ -1,9 +1,8 @@
 from __future__ import print_function
 
-
 try:
   import readline
-except:
+except ImportError:
   print("Module readline not available.")
 else:
   import rlcompleter
