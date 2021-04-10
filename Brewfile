@@ -1,14 +1,14 @@
 tap "jamieconnolly/formulae"
 
+brew "gh"
 brew "git"
 brew "gnupg"
 brew "handles"
-brew "hub"
 brew "mas"
 
 cask "1password-cli"
+cask "docker"
 cask "figma"
-cask "google-chrome"
 cask "the-unarchiver"
 cask "visual-studio-code"
 

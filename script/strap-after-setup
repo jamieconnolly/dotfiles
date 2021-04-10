@@ -6,7 +6,6 @@ set -e
 cd "$(git rev-parse --show-toplevel)"
 
 script/extract-secrets
-script/install-atom-packages
 script/set-defaults
 
 if [ "$SHELL" != "/bin/zsh" ]

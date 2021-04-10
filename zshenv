@@ -3,24 +3,24 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER="open"
 fi
 
+# Code
+if [[ "$OSTYPE" == darwin* ]]; then
+  export CODE_HOME="${HOME}/Code"
+fi
+
 # Editor
-export EDITOR="code"
-export VISUAL=$EDITOR
+if [[ "$OSTYPE" == darwin* ]]; then
+  export EDITOR="code"
+else
+  export EDITOR="vim"
+fi
 
 # GPG
 export GPG_TTY="$(tty)"
 
-# Handles
-export PROJECT_HOME="${HOME}/Projects"
-
 # Locale
 export LANG="en_GB.UTF-8"
 export LC_CTYPE=$LANG
-
-# Pipenv
-export PIPENV_DONT_LOAD_ENV=true
-export PIPENV_NOSPIN=true
-export PIPENV_VENV_IN_PROJECT=true
 
 # Python
 export PYTHONSTARTUP="${HOME}/.pythonrc"

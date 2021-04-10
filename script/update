@@ -33,4 +33,4 @@ else
   update_successful "$(git log -1 --pretty=format:%h)"
 fi
 
-script/setup
+source "install.sh"
