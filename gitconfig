@@ -131,4 +131,4 @@
 [user]
 	name = Jamie Connolly
 	signingkey = 9CEBDE66
-  useConfigOnly = true
+	useConfigOnly = true

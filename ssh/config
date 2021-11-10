@@ -4,6 +4,7 @@ Host *
   ControlPath /tmp/ssh-%r@%h:%p.sock
   ForwardAgent yes
   IdentityFile ~/.ssh/id_ed25519
+  IgnoreUnknown UseKeychain
   NoHostAuthenticationForLocalhost yes
   StrictHostKeyChecking ask
   UseKeychain yes
