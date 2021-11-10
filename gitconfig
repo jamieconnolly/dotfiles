@@ -85,10 +85,6 @@
 	mergeoptions = --no-edit
 	pager = "less --tabs=1,5 -FRX"
 
-[credential "https://github.com"]
-	helper =
-	helper = !gh auth git-credential
-
 [diff]
 	algorithm = patience
 	compactionHeuristic = true
