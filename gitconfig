@@ -8,6 +8,7 @@
 	changelog = !"git log --pretty=simple --relative-date $(git last-tag)..HEAD"
 	changes = diff --name-status
 	churn = !"git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head"
+	cleanup = !"f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
 	conflicts = !"git ls-files --unmerged | awk '{print $4}' | sort -u"
 	credit = !"f() { git commit --amend --author=\"$1 <$2>\" --reuse-message=HEAD; }; f"
 	current-ref = symbolic-ref --short HEAD
