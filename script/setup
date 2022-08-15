@@ -3,9 +3,16 @@
 # Summary: Install all dotfiles into the home directory
 
 set -e
-cd "$(git rev-parse --show-toplevel)"
 
-DOTFILESDIR="$(pwd -P)"
+if [ -L "$0" ]; then
+  SCRIPTSETUP="$(readlink "$0")"
+else
+  SCRIPTSETUP="$0"
+fi
+
+DOTFILESDIRREL=$(dirname $SCRIPTSETUP)
+cd $DOTFILESDIRREL/..
+DOTFILESDIR=$(pwd -P)
 
 for DOTFILE in *; do
   HOMEFILE="$HOME/.$DOTFILE"
@@ -26,7 +33,7 @@ for DOTFILE in *; do
   if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
     ln -sfv "$DIRFILE" "$HOMEFILE"
   else
-    rm -rv "$HOMEFILE"
+    rm -rv "$HOMEFILE" 2>/dev/null
     ln -sv "$DIRFILE" "$HOMEFILE"
   fi
 done
