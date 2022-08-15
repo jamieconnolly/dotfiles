@@ -28,6 +28,8 @@ for DOTFILE in *; do
   if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
     ln -sfv "$DIRFILE" "$HOMEFILE"
   else
+    echo "$HOMEFILE"
+    echo "$DOTFILE"
     rm -rv "$HOMEFILE" 2>/dev/null
     ln -sv "$DIRFILE" "$HOMEFILE"
   fi
