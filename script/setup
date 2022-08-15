@@ -24,16 +24,16 @@ for DOTFILE in *; do
   echo $DOTFILE | grep -q '\.zsh' && HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.zsh//')"
 
   if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
-    echo ln -sfv "$DIRFILE" "$HOMEFILE"
+    ln -sfv "$DIRFILE" "$HOMEFILE"
   else
-    echo rm -rv "$HOMEFILE" 2>/dev/null
-    echo ln -sv "$DIRFILE" "$HOMEFILE"
+    rm -rv "$HOMEFILE" 2>/dev/null
+    ln -sv "$DIRFILE" "$HOMEFILE"
   fi
 done
 
 HOMEDOTFILES="$HOME/.dotfiles"
 if [ "$DOTFILESDIR" != "$HOMEDOTFILES" ]; then
-  echo ln -sf "$DOTFILESDIR" "$HOMEDOTFILES"
+  ln -sf "$DOTFILESDIR" "$HOMEDOTFILES"
 fi
 
 # if [ -n "$CODESPACES" ]; then
