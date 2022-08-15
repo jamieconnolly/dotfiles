@@ -1,7 +1,5 @@
 # Dotfiles
 
-[![Build Status][build-status-image]][build-status-url]
-
 > In Unix-like operating systems, any file or folder that starts with a dot
 > character (for example, /home/user/.config), commonly called a dot file or
 > dotfile, is to be treated as hidden.
@@ -34,6 +32,3 @@ Thank you to everyone who has shared their dotfiles and other shell scripts from
 which I have derived inspiration from.
 
 Feel free to fork this repository, and configure it for yourself.
-
-[build-status-image]: https://api.travis-ci.org/jamieconnolly/dotfiles.svg?branch=master
-[build-status-url]: https://travis-ci.org/jamieconnolly/dotfiles
