@@ -5,4 +5,38 @@
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
-# source "install.sh"
+DOTFILESDIR="$(pwd -P)"
+
+for DOTFILE in *; do
+  HOMEFILE="$HOME/.$DOTFILE"
+  [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
+  DIRFILE="$DOTFILESDIR/$DOTFILE"
+
+  # Don't mess with Codespaces' default GPG/SSH setup
+  if [ -n "$CODESPACES" ]; then
+    echo $DOTFILE | egrep -q '^(gnupg|ssh)/' && continue
+  fi
+
+  # Don't try to install documentation/script files
+  echo $DOTFILE | egrep -q '(^script/$|\.md$|\.txt$)' && continue
+
+  # Remove .zsh extensions
+  echo $DOTFILE | grep -q '\.zsh' && HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.zsh//')"
+
+  if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
+    echo ln -sfv "$DIRFILE" "$HOMEFILE"
+  else
+    echo rm -rv "$HOMEFILE" 2>/dev/null
+    echo ln -sv "$DIRFILE" "$HOMEFILE"
+  fi
+done
+
+HOMEDOTFILES="$HOME/.dotfiles"
+if [ "$DOTFILESDIR" != "$HOMEDOTFILES" ]; then
+  echo ln -sf "$DOTFILESDIR" "$HOMEDOTFILES"
+fi
+
+if [ -n "$CODESPACES" ]; then
+  # Fix up Codespaces permissions
+  chmod 700 /workspaces
+fi
