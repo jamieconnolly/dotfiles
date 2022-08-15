@@ -3,7 +3,7 @@ Host *
   ControlMaster auto
   ControlPath /tmp/ssh-%r@%h:%p.sock
   ForwardAgent yes
-  IdentityFile ~/.ssh/id_ed25519
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   IgnoreUnknown UseKeychain
   NoHostAuthenticationForLocalhost yes
   StrictHostKeyChecking ask
