@@ -1,0 +1,14 @@
+#!/bin/bash
+# Usage: script/codespaces-post-start
+# Summary: Run by codespaces after starting (requires configuration)
+
+set -e
+cd "$(git rev-parse --show-toplevel)"
+
+# Fix GPG
+git config gpg.program /.codespaces/bin/gh-gpgsign
+
+# Always use ZSH as the default shell (e.g. for SSH)
+if ! grep -q "root.*/bin/zsh" /etc/passwd; then
+  chsh -s /bin/zsh root
+fi
