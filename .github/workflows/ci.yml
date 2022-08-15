@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request: ~
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test
+    runs-on: macos-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Validate syntax
+        run: bash -n *.sh
+
+      - name: Setup dotfiles
+        run: bash script/setup
+
+      - name: Run tests
+        run: |
+          zsh -xc "source ~/.zprofile"
+          zsh -xc "source ~/.zshenv"
+          zsh -xc "source ~/.zshrc"
