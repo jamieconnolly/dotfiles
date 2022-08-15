@@ -13,8 +13,8 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: Validate syntax
-        run: bash -n *.sh
+      - name: Validate scripts
+        run: bash -n script/*
 
       - name: Setup dotfiles
         run: bash script/setup
