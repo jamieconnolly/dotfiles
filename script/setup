@@ -7,8 +7,6 @@ cd "$(git rev-parse --show-toplevel)"
 
 DOTFILESDIR="$(pwd -P)"
 
-ls -lah "$HOME"
-
 for DOTFILE in *; do
   HOMEFILE="$HOME/.$DOTFILE"
   [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
@@ -25,20 +23,10 @@ for DOTFILE in *; do
   # Remove .zsh extensions
   echo $DOTFILE | grep -q '\.zsh' && HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.zsh//')"
 
-  if [ -L "$HOMEFILE" ]; then
-    echo "yes 1"
-  fi
-
-  if ! [ -d $DOTFILE ]; then
-    echo "yes 2"
-  fi
-
   if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
     ln -sfv "$DIRFILE" "$HOMEFILE"
   else
-    echo "$HOMEFILE"
-    echo "$DOTFILE"
-    rm -rv "$HOMEFILE" 2>/dev/null
+    rm -rv "$HOMEFILE" 2>/dev/null || true
     ln -sv "$DIRFILE" "$HOMEFILE"
   fi
 done
@@ -48,12 +36,12 @@ if [ "$DOTFILESDIR" != "$HOMEDOTFILES" ]; then
   ln -sf "$DOTFILESDIR" "$HOMEDOTFILES"
 fi
 
-# if [ -n "$CODESPACES" ]; then
+if [ -n "$CODESPACES" ]; then
   # Fix up Codespaces permissions
-  # chmod 700 /workspaces
+  chmod 700 /workspaces
 
-  # if ! grep -q "script/codespaces-post-start" /workspaces/**/.devcontainer/post-attach-command.sh; then
+  if ! grep -q "script/codespaces-post-start" /workspaces/**/.devcontainer/post-attach-command.sh; then
     # Run the codespaces-post-start script now
-    # script/codespaces-post-start
-  # fi
-# fi
+    script/codespaces-post-start
+  fi
+fi
