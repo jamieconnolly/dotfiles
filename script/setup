@@ -9,36 +9,31 @@ DOTFILESDIR="$(pwd -P)"
 
 for DOTFILE in *; do
   HOMEFILE="$HOME/.$DOTFILE"
-
-  echo $HOMEFILE
-
-  # [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
-  # DIRFILE="$DOTFILESDIR/$DOTFILE"
+  [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
+  DIRFILE="$DOTFILESDIR/$DOTFILE"
 
   # Don't mess with Codespaces' default GPG/SSH setup
-  # if [ -n "$CODESPACES" ]; then
-    # echo $DOTFILE | egrep -q '^(gnupg|ssh)/' && continue
-  # fi
+  if [ -n "$CODESPACES" ]; then
+    echo $DOTFILE | egrep -q '^(gnupg|ssh)/' && continue
+  fi
 
   # Don't try to install documentation/script files
-  # echo $DOTFILE | egrep -q '(^script/$|\.md$|\.txt$)' && continue
+  echo $DOTFILE | egrep -q '(^script/$|\.md$|\.txt$)' && continue
 
   # Remove .zsh extensions
-  # echo $DOTFILE | grep -q '\.zsh' && HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.zsh//')"
+  echo $DOTFILE | grep -q '\.zsh' && HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.zsh//')"
 
-  # if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
-    # ln -sfv "$DIRFILE" "$HOMEFILE"
-  # else
-    # rm -rv "$HOMEFILE" 2>/dev/null
-    # ln -sv "$DIRFILE" "$HOMEFILE"
-  # fi
-
+  if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
+    echo ln -sfv "$DIRFILE" "$HOMEFILE"
+  else
+    echo rm -rv "$HOMEFILE" 2>/dev/null
+    echo ln -sv "$DIRFILE" "$HOMEFILE"
+  fi
 done
 
 HOMEDOTFILES="$HOME/.dotfiles"
 if [ "$DOTFILESDIR" != "$HOMEDOTFILES" ]; then
-  echo "$HOMEDOTFILES"
-  # ln -sf "$DOTFILESDIR" "$HOMEDOTFILES"
+  echo ln -sf "$DOTFILESDIR" "$HOMEDOTFILES"
 fi
 
 # if [ -n "$CODESPACES" ]; then
