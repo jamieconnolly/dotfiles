@@ -36,9 +36,8 @@ defaults write com.apple.dock orientation -string "left"
 # Dock & Menu Bar: Make the dock icons a bit smaller
 defaults write com.apple.dock tilesize -int 48
 
-# Dock & Menu Bar: Hide menu bar items
+# Dock & Menu Bar: Hide Bluetooth menu bar item
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool false
-defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool false
 
 # Finder: Don't show icons on the desktop
 defaults write com.apple.finder CreateDesktop -bool false
