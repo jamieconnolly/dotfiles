@@ -25,6 +25,14 @@ for DOTFILE in *; do
   # Remove .zsh extensions
   echo $DOTFILE | grep -q '\.zsh' && HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.zsh//')"
 
+  if [ -L "$HOMEFILE" ]; then
+    echo "yes 1"
+  fi
+
+  if ! [ -d $DOTFILE ]; then
+    echo "yes 2"
+  fi
+
   if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
     ln -sfv "$DIRFILE" "$HOMEFILE"
   else
