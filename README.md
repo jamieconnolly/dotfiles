@@ -1,5 +1,7 @@
 # Dotfiles
 
+[![CI](https://github.com/jamieconnolly/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/jamieconnolly/dotfiles/actions/workflows/ci.yml)
+
 > In Unix-like operating systems, any file or folder that starts with a dot
 > character (for example, /home/user/.config), commonly called a dot file or
 > dotfile, is to be treated as hidden.
