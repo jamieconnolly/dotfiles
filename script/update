@@ -5,32 +5,32 @@
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
-skip_auto_update() {
-  echo -e "\033[0;33m!!! Skipping auto-update, $*.\033[0m" >&2
-}
+# skip_auto_update() {
+  # echo -e "\033[0;33m!!! Skipping auto-update, $*.\033[0m" >&2
+# }
 
-update_successful() {
-  echo -e "\033[0;32m==> Successfully updated to $*!\033[0m"
-}
+# update_successful() {
+  # echo -e "\033[0;32m==> Successfully updated to $*!\033[0m"
+# }
 
-if [ -z "$(git symbolic-ref HEAD)" ]; then
-  skip_auto_update "because the checkout isn't on a branch"
-elif [ "$(git symbolic-ref HEAD)" != "refs/heads/master" ]; then
-  skip_auto_update "because the checkout isn't on master"
-elif [ ! -z "$(git status --porcelain 2>/dev/null)" ]; then
-  skip_auto_update "because there are uncommitted changes"
-elif ! git fetch --quiet origin; then
-  skip_auto_update "because running \`git fetch\` failed"
-elif [ "$(git rev-list --count origin/master..master)" != "0" ]; then
-  skip_auto_update "because there are unpushed commits on master"
-elif [ "$(git rev-list --count HEAD..origin/master)" == "0" ]; then
-  :
-elif ! git reset --hard origin/master 2>&1; then
-  skip_auto_update "because resetting to origin/master was unsuccessful"
-elif ! git clean -qdf; then
-  skip_auto_update "because cleaning up the repo failed"
-else
-  update_successful "$(git log -1 --pretty=format:%h)"
-fi
+# if [ -z "$(git symbolic-ref HEAD)" ]; then
+  # skip_auto_update "because the checkout isn't on a branch"
+# elif [ "$(git symbolic-ref HEAD)" != "refs/heads/master" ]; then
+  # skip_auto_update "because the checkout isn't on master"
+# elif [ ! -z "$(git status --porcelain 2>/dev/null)" ]; then
+  # skip_auto_update "because there are uncommitted changes"
+# elif ! git fetch --quiet origin; then
+  # skip_auto_update "because running \`git fetch\` failed"
+# elif [ "$(git rev-list --count origin/master..master)" != "0" ]; then
+  # skip_auto_update "because there are unpushed commits on master"
+# elif [ "$(git rev-list --count HEAD..origin/master)" == "0" ]; then
+  # :
+# elif ! git reset --hard origin/master 2>&1; then
+  # skip_auto_update "because resetting to origin/master was unsuccessful"
+# elif ! git clean -qdf; then
+  # skip_auto_update "because cleaning up the repo failed"
+# else
+  # update_successful "$(git log -1 --pretty=format:%h)"
+# fi
 
-source "install.sh"
+# source "install.sh"

@@ -8,107 +8,116 @@ cd "$(git rev-parse --show-toplevel)"
 echo "==> Setting macOS defaults…"
 
 # Desktop Services: Don't write .DS_Store files on network or USB volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+# defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+# defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# Dock: Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock autohide-delay -float 0
+# Dock & Menu Bar: Automatically hide and show the Dock
+# defaults write com.apple.dock autohide -bool true
+# defaults write com.apple.dock autohide-delay -float 0
 
-# Dock: Don't show indicators for open applications
-defaults write com.apple.dock show-process-indicators -bool false
+# Dock & Menu Bar: Don't show indicators for open applications
+# defaults write com.apple.dock show-process-indicators -bool false
 
-# Dock: Don't show recent application
-defaults write com.apple.dock show-recents -bool false
+# Dock & Menu Bar: Don't show recent application
+# defaults write com.apple.dock show-recents -bool false
 
-# Dock: Minimize window when double clicking title bar
-defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Minimize"
+# Dock & Menu Bar: Minimize window when double clicking title bar
+# defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Minimize"
 
-# Dock: Minimize windows into application icon
-defaults write com.apple.dock minimize-to-application -bool true
+# Dock & Menu Bar: Minimize windows into application icon
+# defaults write com.apple.dock minimize-to-application -bool true
 
-# Dock: Show only active applications
-defaults write com.apple.dock static-only -bool true
+# Dock & Menu Bar: Show only active applications
+# defaults write com.apple.dock static-only -bool true
 
-# Dock: Move the dock to the left
-defaults write com.apple.dock orientation -string "left"
+# Dock & Menu Bar: Move the dock to the left
+# defaults write com.apple.dock orientation -string "left"
 
-# Dock: Make the dock icons a bit smaller
-defaults write com.apple.dock tilesize -int 48
+# Dock & Menu Bar: Make the dock icons a bit smaller
+# defaults write com.apple.dock tilesize -int 48
+
+# Dock & Menu Bar: Hide Bluetooth in the menu bar
+# defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool false
+
+# Dock & Menu Bar: Hide Wi-Fi in the menu bar
+# defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool false
 
 # Finder: Don't show icons on the desktop
-defaults write com.apple.finder CreateDesktop -bool false
+# defaults write com.apple.finder CreateDesktop -bool false
 
 # Finder: Keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool true
+# defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Finder: Open new windows on the user's recent files
-defaults write com.apple.finder NewWindowTarget -string "PfAF"
+# defaults write com.apple.finder NewWindowTarget -string "PfAF"
 
 # Finder: Search within current directory
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+# defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Finder: Set column view as the default
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+# defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # General: Use a dark appearance for buttons, menus and windows
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+# defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 # Keyboard: Make the key repeat rate a bit quicker
-defaults write NSGlobalDomain KeyRepeat -int 6
+# defaults write NSGlobalDomain KeyRepeat -int 6
 
 # Keyboard: Make the delay before repeating characters a bit shorter
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+# defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Mission Control: Don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
+# defaults write com.apple.dock mru-spaces -bool false
 
 # Mission Control: Group windows by application
-defaults write com.apple.dock expose-group-apps -bool true
+# defaults write com.apple.dock expose-group-apps -bool true
 
 # Mouse: Enable secondary click
-defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string "TwoButton"
+# defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string "TwoButton"
 
 # Mouse: Enable smart zoom
-defaults write com.apple.AppleMultitouchMouse MouseOneFingerDoubleTapGesture -bool true
+# defaults write com.apple.AppleMultitouchMouse MouseOneFingerDoubleTapGesture -bool true
 
 # Mouse: Allow swiping between pages
-defaults write NSGlobalDomain AppleEnableMouseSwipeNavigateWithScrolls -bool true
+# defaults write NSGlobalDomain AppleEnableMouseSwipeNavigateWithScrolls -bool true
 
 # Network: Enable Private Cloudflare DNS servers (1.1.1.1)
-networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
+# networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
 
 # Safari: Disable auto filling
-defaults write com.apple.Safari AutoFillCreditCardData -bool false
-defaults write com.apple.Safari AutoFillFromAddressBook -bool false
-defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
-defaults write com.apple.Safari AutoFillPasswords -bool false
+# defaults write com.apple.Safari AutoFillCreditCardData -bool false
+# defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+# defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+# defaults write com.apple.Safari AutoFillPasswords -bool false
 
 # Safari: Don't open "safe" files after downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+# defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
 # Safari: Find matches contained within other words
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+# defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 
 # Safari: Open with all non-private windows from last session
-defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
-defaults write com.apple.Safari ExcludePrivateWindowWhenRestoringSessionAtLaunch -bool true
+# defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
+# defaults write com.apple.Safari ExcludePrivateWindowWhenRestoringSessionAtLaunch -bool true
 
 # Safari: Set home page to about:blank for faster loading
-defaults write com.apple.Safari HomePage -string "about:blank"
+# defaults write com.apple.Safari HomePage -string "about:blank"
 
 # Safari: Show Develop menu in the menu bar
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true
+# defaults write com.apple.safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
 # Safari: Show status bar overlay
-defaults write com.apple.Safari ShowOverlayStatusBar -bool true
+# defaults write com.apple.Safari ShowOverlayStatusBar -bool true
 
 # Safari: Show website icons in tabs
-defaults write com.apple.Safari ShowIconsInTabs -bool true
+# defaults write com.apple.Safari ShowIconsInTabs -bool true
 
 # Siri: Don't allow Siri when locked
-defaults write com.apple.Siri LockscreenEnabled -bool false
+# defaults write com.apple.Siri LockscreenEnabled -bool false
+
+# Siri: Listen for "Hey Siri"
+# defaults write com.apple.Siri VoiceTriggerUserEnabled -bool true
 
 # Trackpad: Enable tap to click
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+# defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
