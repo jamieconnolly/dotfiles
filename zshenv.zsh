@@ -1,11 +1,13 @@
 # Browser
-if [[ "$OSTYPE" == darwin* ]]; then
+if [ "$(uname -s)" = "Darwin" ]; then
   export BROWSER="open"
 fi
 
 # Code
-if [[ "$OSTYPE" == darwin* ]]; then
+if [ "$(uname -s)" = "Darwin" ]; then
   export CODE_HOME="${HOME}/Code"
+elif [ -n "$CODESPACES" ]; then
+  export CODE_HOME="/workspaces"
 fi
 
 # Editor
@@ -18,8 +20,8 @@ export GPG_TTY="$(tty)"
 export LANG="en_GB.UTF-8"
 export LC_CTYPE=$LANG
 
-# Python
-export PYTHONSTARTUP="${HOME}/.pythonrc"
+# Secrets
+export GITHUB_TOKEN="op://Personal/GitHub/credentials/personal_token"
 
 # ZSH
 export ZSH_HOME="${HOME}/.zsh"
