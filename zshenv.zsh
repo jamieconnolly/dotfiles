@@ -21,7 +21,9 @@ export LANG="en_GB.UTF-8"
 export LC_CTYPE=$LANG
 
 # Secrets
-export GITHUB_TOKEN="op://Personal/GitHub/credentials/personal_token"
+if [ "$(uname -s)" = "Darwin" ]; then
+  export GITHUB_TOKEN="op://Personal/GitHub/credentials/personal_token"
+fi
 
 # ZSH
 export ZSH_HOME="${HOME}/.zsh"
