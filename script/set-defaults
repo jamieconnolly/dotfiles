@@ -84,6 +84,9 @@ defaults write com.apple.Safari AutoFillFromAddressBook -bool false
 defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
 defaults write com.apple.Safari AutoFillPasswords -bool false
 
+# Safari: Disable spellchecking while typing
+defaults write WebContinuousSpellCheckingEnabled -bool false
+
 # Safari: Don't open "safe" files after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
@@ -100,12 +103,13 @@ defaults write com.apple.Safari HomePage -string "about:blank"
 # Safari: Show Develop menu in the menu bar
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 # Safari: Show status bar overlay
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true
 
-# Safari: Show website icons in tabs
-defaults write com.apple.Safari ShowIconsInTabs -bool true
+# Safari: Use the compact tab layout
+defaults write com.apple.Safari ShowStandaloneTabBar -bool false
 
 # Siri: Don't allow Siri when locked
 defaults write com.apple.Siri LockscreenEnabled -bool false
