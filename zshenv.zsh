@@ -22,7 +22,7 @@ export LC_CTYPE=$LANG
 
 # Secrets
 if [ "$(uname -s)" = "Darwin" ]; then
-  export GITHUB_TOKEN="op://Personal/GitHub/credentials/personal_token"
+  export GPR_TOKEN="op://Personal/GitHub/credentials/gpr_token"
 fi
 
 # ZSH
