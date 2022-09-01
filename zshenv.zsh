@@ -6,7 +6,7 @@ fi
 # Code
 if [ "$(uname -s)" = "Darwin" ]; then
   export CODE_HOME="${HOME}/Code"
-elif [ -n "$CODESPACES" ]; then
+elif [ -n "$CODESPACES" ] || [ -n "$REMOTE_CONTAINERS" ]; then
   export CODE_HOME="/workspaces"
 fi
 
@@ -23,6 +23,11 @@ export LC_CTYPE=$LANG
 # Secrets
 if [ "$(uname -s)" = "Darwin" ]; then
   export GPR_TOKEN="op://Personal/GitHub/credentials/gpr_token"
+fi
+
+# SSH
+if [ "$(uname -s)" = "Darwin" ]; then
+  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 fi
 
 # ZSH
