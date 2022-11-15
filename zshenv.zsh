@@ -23,6 +23,8 @@ export LC_CTYPE=$LANG
 # Secrets
 if [ "$(uname -s)" = "Darwin" ]; then
   export GPR_TOKEN="op://Personal/GitHub/credentials/gpr_token"
+elif [ -n "$CODESPACES" ]; then
+  export GPR_TOKEN=$GITHUB_TOKEN
 fi
 
 # SSH
