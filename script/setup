@@ -12,9 +12,9 @@ for DOTFILE in *; do
   [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
   DIRFILE="$DOTFILESDIR/$DOTFILE"
 
-  # Don't mess with Codespaces' default GPG/SSH setup
+  # Don't mess with Codespaces default SSH setup
   if [ -n "$CODESPACES" ]; then
-    echo $DOTFILE | egrep -q '^(gnupg|ssh)/' && continue
+    echo $DOTFILE | egrep -q '^ssh/' && continue
   fi
 
   # Don't try to install documentation/script files

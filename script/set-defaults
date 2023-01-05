@@ -21,6 +21,10 @@ defaults write com.apple.dock show-process-indicators -bool false
 # Dock & Menu Bar: Don't show recent application
 defaults write com.apple.dock show-recents -bool false
 
+# Dock & Menu Bar:
+defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool false
+defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool false
+
 # Dock & Menu Bar: Minimize window when double clicking title bar
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Minimize"
 

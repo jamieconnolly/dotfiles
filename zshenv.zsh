@@ -13,9 +13,6 @@ fi
 # Editor
 export EDITOR="code"
 
-# GPG
-export GPG_TTY="$(tty)"
-
 # Locale
 export LANG="en_GB.UTF-8"
 export LC_CTYPE=$LANG

@@ -103,7 +103,7 @@
 	user = jamieconnolly
 
 [gpg]
-	program = gpg
+	format = ssh
 
 [help]
 	autocorrect = 1
@@ -120,5 +120,5 @@
 
 [user]
 	name = Jamie Connolly
-	signingkey = A202E5A39CEBDE66!
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICvWAl9WdlWb/bI9PPRjRdF7Ghte/vYbJhDZleBZaqBJ
 	useConfigOnly = true
