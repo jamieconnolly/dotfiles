@@ -5,23 +5,29 @@
 set -e
 cd "$(git rev-parse --show-toplevel)"
 
-DOTFILESDIR="$(pwd -P)"
+DOTFILES_DIR="$(pwd -P)"
 
-for DOTFILE in *; do
+for DOTFILE in * config/**/*; do
   HOMEFILE="$HOME/.$DOTFILE"
-  [ -d $DOTFILE ] && DOTFILE="$DOTFILE/"
-  DIRFILE="$DOTFILESDIR/$DOTFILE"
+  [ -d $DOTFILE ] && DOTFILE="$(echo $DOTFILE/ | sed -e 's://:/:')"
+  DIRFILE="$DOTFILES_DIR/$DOTFILE"
 
   # Don't mess with Codespaces default SSH setup
   if [ -n "$CODESPACES" ]; then
     echo $DOTFILE | egrep -q '^ssh/' && continue
   fi
 
+  # Don't try to install the config folder
+  echo $DOTFILE | egrep -q '^config/$' && continue
+
   # Don't try to install documentation/script files
-  echo $DOTFILE | egrep -q '(^script/$|\.md$|\.txt$)' && continue
+  echo $DOTFILE | egrep -q '(^script/|\.md$|\.txt$)' && continue
 
   # Remove .zsh extensions
   echo $DOTFILE | grep -q '\.zsh' && HOMEFILE="$HOME/.$(echo $DOTFILE | sed -e 's/\.zsh//')"
+
+  # Create the parent directory if it doesn't exist
+  mkdir -p "$(dirname $HOMEFILE)"
 
   if [ -L "$HOMEFILE" ] && ! [ -d $DOTFILE ]; then
     ln -sfv "$DIRFILE" "$HOMEFILE"
@@ -31,9 +37,9 @@ for DOTFILE in *; do
   fi
 done
 
-HOMEDOTFILES="$HOME/.dotfiles"
-if [ "$DOTFILESDIR" != "$HOMEDOTFILES" ]; then
-  ln -sf "$DOTFILESDIR" "$HOMEDOTFILES"
+HOME_DOTFILES_DIR="$HOME/.dotfiles"
+if [ "$DOTFILES_DIR" != "$HOME_DOTFILES_DIR" ]; then
+  ln -sf "$DOTFILES_DIR" "$HOME_DOTFILES_DIR"
 fi
 
 if [ -n "$CODESPACES" ]; then
