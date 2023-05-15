@@ -120,5 +120,5 @@
 
 [user]
 	name = Jamie Connolly
+	email = 76968+jamieconnolly@users.noreply.github.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICvWAl9WdlWb/bI9PPRjRdF7Ghte/vYbJhDZleBZaqBJ
-	useConfigOnly = true

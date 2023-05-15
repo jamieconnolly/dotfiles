@@ -3,20 +3,15 @@ if [ "$(uname -s)" = "Darwin" ]; then
   export BROWSER="open"
 fi
 
-# Code
+# Developer
 if [ "$(uname -s)" = "Darwin" ]; then
-  export CODE_HOME="${HOME}/Code"
+  export DEVELOPER_HOME="${HOME}/Developer"
 elif [ -n "$CODESPACES" ] || [ -n "$REMOTE_CONTAINERS" ]; then
-  export CODE_HOME="/workspaces"
+  export DEVELOPER_HOME="/workspaces"
 fi
 
 # Editor
 export EDITOR="code"
-
-# Homebrew
-if [ "$(uname -s)" = "Darwin" ]; then
-  export HOMEBREW_INSTALL_FROM_API=true
-fi
 
 # Locale
 export LANG="en_GB.UTF-8"
@@ -25,7 +20,7 @@ export LC_CTYPE=$LANG
 # Secrets (@TODO - move to 1Password Shell Plugins)
 if [ "$(uname -s)" = "Darwin" ]; then
   export GPR_TOKEN="op://Personal/GitHub/credentials/gpr_token"
-elif [ -n "$CODESPACES" ]; then
+elif [ -n "$CODESPACES" ] || [ -n "$REMOTE_CONTAINERS" ]; then
   export GPR_TOKEN=$GITHUB_TOKEN
 fi
 
